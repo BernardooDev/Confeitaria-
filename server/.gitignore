@@ -6,3 +6,5 @@ server/.env
 
 # Other ignore files
 .DS_Store
+
+.env
