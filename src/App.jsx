@@ -1,6 +1,7 @@
 // src/App.js
 import React from 'react';
 import HomePage from './pages/home';
+import './index.css'; 
 
 function App() {
   return (

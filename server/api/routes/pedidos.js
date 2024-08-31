@@ -1,8 +1,10 @@
+// server/routes/pedidos.js
 const express = require('express');
 const router = express.Router();
-const db = require('../db');
+const db = require('../../db');
 
-router.post('/pedidos', (req, res) => {
+// Rota para criar um pedido
+router.post('/', (req, res) => {
   const { cliente, itens } = req.body;
 
   const query = 'INSERT INTO pedidos (cliente, itens) VALUES (?, ?)';
@@ -13,5 +15,7 @@ router.post('/pedidos', (req, res) => {
     res.status(201).json({ id: results.insertId });
   });
 });
+
+// Outras rotas relacionadas a pedidos podem ser adicionadas aqui
 
 module.exports = router;
