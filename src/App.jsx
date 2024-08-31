@@ -1,13 +1,16 @@
-// src/App.js
 import React from 'react';
-import HomePage from './pages/home';
-import './index.css'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import CategoryPage from './pages/CategoryPage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/categorias/:id" element={<CategoryPage />} />
+      </Routes>
+    </Router>
   );
 }
 
