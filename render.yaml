@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: confeitaria-site
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    github:
+      repo: BernardooDev/Confeitaria
+      branch: main
+    routes:
+      - type: root
+        path: /
