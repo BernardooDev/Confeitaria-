@@ -1,4 +1,3 @@
-// server/api/routes/categorias.js
 const express = require('express');
 const router = express.Router();
 const pool = require('../../db'); // Ajuste o caminho conforme necessário
@@ -14,18 +13,29 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Obter categoria por ID
+// Obter categoria por ID e seus itens
 router.get('/:id', async (req, res) => {
+  const { id } = req.params;
   try {
-    const [rows] = await pool.query('SELECT * FROM categorias WHERE id = ?', [req.params.id]);
-    if (rows.length > 0) {
-      res.json(rows[0]);
-    } else {
-      res.status(404).json({ error: 'Categoria não encontrada' });
+    // Buscar a categoria com o ID especificado
+    const [categoriaRows] = await pool.query('SELECT * FROM categorias WHERE id = ?', [id]);
+
+    // Buscar os itens que pertencem à categoria com o ID especificado
+    const [itensRows] = await pool.query('SELECT * FROM itens WHERE category_id = ?', [id]);
+
+    // Verificar se a categoria foi encontrada
+    if (categoriaRows.length === 0) {
+      return res.status(404).json({ error: 'Categoria não encontrada' });
     }
+
+    // Retornar a categoria e seus itens
+    res.json({
+      categoria: categoriaRows[0],
+      itens: itensRows
+    });
   } catch (error) {
-    console.error('Erro ao obter categoria:', error);
-    res.status(500).json({ error: 'Erro ao obter categoria' });
+    console.error('Erro ao obter categoria e itens:', error);
+    res.status(500).json({ error: 'Erro ao obter categoria e itens' });
   }
 });
 

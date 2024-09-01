@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+
 const HomePage = () => {
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,32 +22,21 @@ const HomePage = () => {
     fetchCategorias();
   }, []);
 
-  const criarPedido = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/api/pedidos', {
-        cliente: 'Nome do Cliente',
-        itens: [{ item: 'Bolo de Chocolate', quantidade: 1 }],
-      });
-      console.log('Pedido criado com sucesso:', response.data);
-    } catch (error) {
-      console.error('Erro ao criar o pedido:', error);
-    }
-  };
-
   if (loading) return <div className="text-center mt-10">Carregando...</div>;
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100">
       <header className="w-full py-10 bg-white shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800">Bem-vindo à Confeitaria</h1>
+          <h1 className="text-4xl font-bold text-gray-800">Bem-vindo à Senhorita Confeitaria</h1>
           <p className="text-lg text-gray-600 mt-4">Delícias feitas com amor, entregues na sua porta.</p>
-          <button 
+          <br></br>
+          <Link 
             className="mt-6 bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition duration-300" 
-            onClick={criarPedido}
+            to="/itens"
           >
             Faça seu pedido
-          </button>
+          </Link>
         </div>
       </header>
 
@@ -59,8 +49,7 @@ const HomePage = () => {
               to={`/categorias/${categoria.id}`}
               className="bg-white p-4 shadow-md rounded-lg hover:bg-gray-100 transition duration-300"
             >
-              <h3 className="text-xl font-medium text-gray-800">{categoria.nome}</h3>
-              <p className="text-gray-600 mt-2">{categoria.descricao}</p>
+              <h3 className="text-xl font-medium text-gray-800">{categoria.name}</h3>
             </Link>
           ))}
         </div>
