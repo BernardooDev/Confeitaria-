@@ -23,7 +23,7 @@ const ItensPage = () => {
     fetchItens();
   }, []);
 
-  if (loading) return <div>Carregando...</div>;
+  if (loading) return <div>Carregando..</div>;
 
   return (
     <div className="min-h-screen flex-col items-center justify-center bg-gray-100">
