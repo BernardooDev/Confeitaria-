@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const CategoryPage = () => {
-
   const api = axios.create({
     baseURL: 'https://confeitaria-production.up.railway.app/api', // replace with your actual backend URL
   });
@@ -30,9 +29,8 @@ const CategoryPage = () => {
     };
 
     fetchCategoria();
-  }, [id]);
+  }, [api, id]); // Add 'api' and 'id' to the dependency array
 
-  if (loading) return <div>Carregando...</div>;
 
   if (!categoria) return <div>Categoria não encontrada</div>;
 

@@ -25,7 +25,7 @@ const ItensPage = () => {
     };
 
     fetchItens();
-  }, []);
+  }, [api]); // Add 'api' to the dependency array
 
   if (loading) return <div>Carregando..</div>;
 

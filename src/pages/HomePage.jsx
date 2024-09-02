@@ -24,7 +24,8 @@ const HomePage = () => {
     };
 
     fetchCategorias();
-  }, []);
+  }, [api]); // Add 'api' to the dependency array
+
 
   if (loading) return <div className="text-center mt-10">Carregando...</div>;
 
