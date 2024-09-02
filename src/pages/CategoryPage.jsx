@@ -15,7 +15,7 @@ const CategoryPage = () => {
     const fetchCategoria = async () => {
       try {
         const response = await axios.get(
-          `http://junction.proxy.rlwy.net/api/categorias/${id}`
+          `https://confeitaria-production.up.railway.app/api/categorias/${id}`
         );
         setCategoria(response.data.categoria);
         setItens(response.data.itens);
