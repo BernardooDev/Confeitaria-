@@ -10,7 +10,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchCategorias = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/categorias');
+        const response = await axios.get('http://junction.proxy.rlwy.net/api/categorias');
         setCategorias(response.data);
       } catch (error) {
         console.error('Erro ao obter categorias:', error);

@@ -11,7 +11,7 @@ const ItensPage = () => {
   useEffect(() => {
     const fetchItens = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/itens");
+        const response = await axios.get("http://junction.proxy.rlwy.net/api/itens");
         setItens(response.data);
       } catch (error) {
         console.error("Erro ao obter itens:", error);

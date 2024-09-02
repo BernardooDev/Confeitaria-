@@ -15,7 +15,7 @@ const CategoryPage = () => {
     const fetchCategoria = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/categorias/${id}`
+          `http://junction.proxy.rlwy.net/api/categorias/${id}`
         );
         setCategoria(response.data.categoria);
         setItens(response.data.itens);
