@@ -6,6 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const CategoryPage = () => {
+
+  const api = axios.create({
+    baseURL: 'https://confeitaria-production.up.railway.app/', // replace with your actual backend URL
+  });
+
   const { id } = useParams();
   const [categoria, setCategoria] = useState(null);
   const [itens, setItens] = useState([]);
@@ -14,9 +19,7 @@ const CategoryPage = () => {
   useEffect(() => {
     const fetchCategoria = async () => {
       try {
-        const response = await axios.get(
-          `https://confeitaria-production.up.railway.app/api/categorias/${id}`
-        );
+        const response = await api.get(`/api/categorias/${id}`);
         setCategoria(response.data.categoria);
         setItens(response.data.itens);
       } catch (error) {

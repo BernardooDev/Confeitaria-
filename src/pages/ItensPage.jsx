@@ -11,7 +11,7 @@ const ItensPage = () => {
   useEffect(() => {
     const fetchItens = async () => {
       try {
-        const response = await axios.get("https://confeitaria-production.up.railway.app/api/itens");
+        const response = await api.get("/api/itens");
         setItens(response.data);
       } catch (error) {
         console.error("Erro ao obter itens:", error);

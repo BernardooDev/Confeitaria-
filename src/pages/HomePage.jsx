@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom';
 
 
 const HomePage = () => {
+  const api = axios.create({
+    baseURL: 'https://confeitaria-production.up.railway.app/', // replace with your actual backend URL
+  });
+
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCategorias = async () => {
       try {
-        const response = await axios.get('https://confeitaria-production.up.railway.app/api/categorias');
+        const response = await api.get('/api/categorias');
         setCategorias(response.data);
       } catch (error) {
         console.error('Erro ao obter categorias:', error);
