@@ -32,7 +32,7 @@ const CategoryPage = () => {
   }, [api, id]); // Add 'api' and 'id' to the dependency array
 
 
-  if (!categoria) return <div>Categoria não encontrada</div>;
+  if (!loading) return <div>Categoria não encontrada</div>;
 
   return (
     <div className="min-h-screen flex-col items-center justify-center bg-gray-100">
