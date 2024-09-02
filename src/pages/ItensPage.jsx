@@ -5,13 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const ItensPage = () => {
+  const api = axios.create({
+    baseURL: 'https://confeitaria-production.up.railway.app/api', // replace with your actual backend URL
+  });
+
   const [itens, setItens] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchItens = async () => {
       try {
-        const response = await api.get("/api/itens");
+        const response = await api.get("/itens");
         setItens(response.data);
       } catch (error) {
         console.error("Erro ao obter itens:", error);
