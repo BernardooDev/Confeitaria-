@@ -1,7 +1,7 @@
 // server/db.js
 require('dotenv').config();
 const mysql = require('mysql2/promise');
-mysql://root:usigCHiwIQzWiEFxOHozgeccnGpcbCbh@autorack.proxy.rlwy.net:16521/railway
+// mysql://root:usigCHiwIQzWiEFxOHozgeccnGpcbCbh@autorack.proxy.rlwy.net:16521/railway
 
 const connection  = mysql.createPool({
   host: process.env.DB_HOST,

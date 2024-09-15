@@ -1,0 +1,153 @@
+body {
+    background-color: #fafafa;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.BoloHeader {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #CF8C95;
+    color: whitesmoke;
+    box-shadow: -1px 10px 29px -21px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 575px) {
+    .BoloHeader {
+        height: 15vh;
+    }
+}
+
+.productContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.Products {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* flex-direction: column; */
+}
+
+.productCard {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly; /* Alinha os elementos com espaçamento uniforme */
+    align-items: center;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+/* Logo do produto */
+.productLogo {
+    width: 33%; /* Ocupa 33% do espaço */
+    height: 100%;
+    border: 1px solid purple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productLogo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Detalhes do produto */
+.productDetails {
+    height: 90%;
+    width: 33%; /* Ocupa 33% do espaço */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid salmon;
+}
+
+.productName {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.productPrice {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Estilo para Adicionar ao Carrinho */
+.AddToCart {
+    width: 33%; /* Ocupa 33% do espaço */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.SumtoCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.SumtoCart p {
+    font-size: 1.2rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+.ButtonToCart button {
+    padding: 10px 20px;
+    background-color: #CF8C95;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ButtonToCart button:hover {
+    background-color: #b77380;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .productCard {
+        width: 45%;
+    }
+}
+
+@media (max-width: 575px) {
+    .productCard {
+        width: 100%;
+    }
+    
+    .productLogo {
+        width: 100%;
+    }
+
+    .productDetails {
+        width: 100%;
+    }
+}

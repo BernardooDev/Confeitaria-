@@ -1,0 +1,97 @@
+body {
+    background-color: #fafafa;
+}
+
+.TortasHeader {
+    width: 100%;
+    height: 20vh;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #CF8C95;
+    color: whitesmoke;
+    box-shadow: -1px 10px 29px -21px rgba(0,0,0,0.75);
+
+    @media (max-width: 575px) {
+        width: 100%;
+        height: 15vh;
+    }
+}
+
+/* Container principal para os produtos */
+
+.productContainer {
+    height: 80vh;
+    display: flex;
+    flex-wrap: wrap; /* Permite que os produtos quebrem em múltiplas linhas */
+    overflow-y: auto; /* Adiciona scroll vertical se necessário */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Cartão do produto */
+.productCard {
+    width: 100vw;
+    height: 35%; /* Ajusta a largura dos produtos para que fiquem 2 por linha com um pequeno espaço */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Espaço inferior entre as linhas de produtos */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total do produto */
+}
+
+/* Logo do produto */
+.productLogo {
+    width: 30%; /* Largura da imagem do produto */
+    margin-right: 10px;
+}
+
+.productLogo img {
+    width: 100%; /* A imagem ocupa toda a largura do contêiner */
+    height: auto; /* Ajusta a altura proporcionalmente */
+    border-radius: 8px;
+}
+
+/* Detalhes do produto */
+.productDetails {
+    width: 70%; /* Largura dos detalhes do produto */
+    display: flex;
+    flex-direction: column; /* Organiza o nome e o preço verticalmente */
+    justify-content: center;
+}
+
+/* Nome do produto */
+.productName {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Preço do produto */
+.productPrice {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .productCard {
+        width: 100%; /* Cada produto ocupa 100% da largura da tela em dispositivos menores */
+    }
+    
+    .productLogo {
+        width: 100%; /* Imagem ocupa 100% da largura do cartão em dispositivos menores */
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .productDetails {
+        width: 100%; /* Detalhes ocupam 100% da largura do cartão */
+    }
+}
