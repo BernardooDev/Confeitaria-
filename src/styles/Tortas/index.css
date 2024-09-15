@@ -5,14 +5,13 @@ body {
 .TortasHeader {
     width: 100%;
     height: 20vh;
-    border: 1px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: #CF8C95;
-    color: whitesmoke;
     box-shadow: -1px 10px 29px -21px rgba(0,0,0,0.75);
-
+    color: whitesmoke;
+    font-size: 1.6rem;
     @media (max-width: 575px) {
         width: 100%;
         height: 15vh;
