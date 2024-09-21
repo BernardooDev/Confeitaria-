@@ -1,0 +1,114 @@
+body {
+  background-color: #fafafa;
+}
+
+.CheckoutHeader {
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #cf8c95;
+  color: whitesmoke;
+  box-shadow: -1px 10px 29px -21px rgba(0, 0, 0, 0.75);
+  font-size: 1.6rem;
+
+  @media (max-width: 575px) {
+    width: 100%;
+    height: 15vh;
+  }
+}
+
+.MainCheckout {
+  border: 1px solid;
+  width: 100vw;
+  height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.CheckoutContainer {
+  border: 1px solid purple;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #fdf1f3;
+  h1 {
+    color: #CF8C95;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+}
+
+.CheckoutProducts {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.CheckoutProduct {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.SingleProduct {
+  display: flex;
+  align-items: center;
+  border: 1px solid brown;
+  width: 100%;
+  height: 20%;
+}
+
+.checkoutItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+}
+
+.ProductLogo {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+}
+
+.ProductCheckoutName {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ProductQuantity {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid sienna;
+  height: 100%;
+  width: 33%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.CheckoutTotal {
+  border: 1px solid blue;
+  width: 100%;
+  display: flex;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

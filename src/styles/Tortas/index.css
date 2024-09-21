@@ -82,6 +82,7 @@ body {
 @media (max-width: 768px) {
     .productCard {
         width: 100%; /* Cada produto ocupa 100% da largura da tela em dispositivos menores */
+        height: 45%;
     }
     
     .productLogo {

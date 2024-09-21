@@ -8,9 +8,12 @@ import "./index.css";
 import Tortas from "./components/Tortas/Tortas";
 import CupcakesPage from "./pages/CupcakesPage";
 import BiscoitosPage from "./pages/BiscoitosPage";
+import { CartProvider } from "./State/CartContext";
+import CheckoutPage from "./pages/CheckoutPage";
 
 const App = () => {
   return (
+    <CartProvider>
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -20,8 +23,11 @@ const App = () => {
           <Route path="cupcakes" element={<CupcakesPage /> } /> 
           <Route path="biscoitos" element={<BiscoitosPage />} />
         <Route path="/encomenda" element={<EncomendaPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </Router>
+    </CartProvider>
+
   );
 };
 

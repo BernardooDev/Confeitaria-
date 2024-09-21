@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="EncomendaHeader">
       <div className="Modal">
-        <Link to="/retirada">
+        <Link to="/">
           <FontAwesomeIcon icon={faHome} />
         </Link>
       </div>
@@ -15,7 +15,7 @@ export default function Header() {
         <h1>FAÇA SUA ENCOMENDA!</h1>
       </div>
       <div className="Cart">
-        <Link to="/">
+        <Link to="/checkout">
           <FontAwesomeIcon icon={faShoppingCart} />
         </Link>
       </div>

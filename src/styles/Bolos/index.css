@@ -43,7 +43,7 @@ body {
 
 .productCard {
     width: 30%;
-    height: 20%;
+    height: 25%;
     display: flex;
     justify-content: space-evenly; /* Alinha os elementos com espaçamento uniforme */
     align-items: center;
