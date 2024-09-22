@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from '../../State/CartContext'; // Importar o contexto
+import { useCart } from "../../State/CartContext"; // Importar o contexto
 
 // Array de produtos fictícios para tortas
 const products = [
@@ -57,21 +57,26 @@ export default function Main() {
   return (
     <div className="productContainer">
       <div className="Products">
-        {products.map(product => (
+        {products.map((product) => (
           <div key={product.id} className="productCard">
             <div className="productLogo">
               <img src={`path/to/assets/${product.logo}`} alt={product.name} />
             </div>
             <div className="productDetails">
               <h1 className="productName">{product.name}</h1>
-              <p className='productDescription'>{product.details}</p>
+              <p className="productDescription">{product.details}</p>
               <span className="productPrice">R$ {product.price}</span>
             </div>
-            <div className='AddToCart'> 
+            <div className="AddToCart">
               <div className="SumtoCart">
-              <button onClick={() => removeFromCart(product.id)}>-</button>
-                <span>{cart.find(item => item.id === product.id)?.quantity || 0}</span>
+                <button onClick={() => removeFromCart(product.id)}>-</button>
+                <p>
+                  {cart.find((item) => item.id === product.id)?.quantity || 0}
+                </p>
                 <button onClick={() => addToCart(product)}>+</button>
+              </div>
+              <div className="ButtonToCart">
+                <button> Adicionar </button>
               </div>
             </div>
           </div>

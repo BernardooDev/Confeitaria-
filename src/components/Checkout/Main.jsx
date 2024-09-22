@@ -28,9 +28,9 @@ export default function Checkout() {
                       <p className="ProductName">{item.name}</p>
                     </div>
                     <div className="ProductPrice">
-                      <p className="PriceTag">
-                        R$ {item.price * item.quantity}
-                      </p>
+                      <div className="PriceTag">
+                        <p>R$ {item.price * item.quantity}</p>
+                      </div>
                       <div className="ProductQuantity">
                         <button
                           onClick={() => removeFromCart(item.id)}

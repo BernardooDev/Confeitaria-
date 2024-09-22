@@ -24,31 +24,52 @@ body {
   flex-wrap: wrap; /* Quebra os produtos em múltiplas linhas, se necessário */
   justify-content: space-around; /* Espaçamento entre os produtos */
   padding: 20px;
-  gap: 10px; /* Espaço entre os produtos */
+  gap: 20px; /* Aumentado para um espaçamento melhor */
 }
 
 /* Estilo para cada produto */
 .AllProducts {
   display: flex;
   flex-direction: column; /* Organiza o conteúdo verticalmente */
-  align-items: center; /* Centraliza os itens (logo, nome, preço) */
-  justify-content: center;
-  width: 45%; /* Cada produto ocupa 45% da largura da linha */
-  height: 400px; /* Altura fixa para cada produto */
+  align-items: center; /* Centraliza os itens (logo, nome) */
+  justify-content: flex-start; /* Alinha os itens ao topo */
+  width: 100%; /* Cada produto ocupará 100% da largura em telas menores */
+  max-width: 600px; /* Limita a largura máxima */
+  height: auto; /* Altura automática para melhor adaptação */
   background-color: #f7f7f7;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Espaçamento inferior entre as linhas de produtos */
+  transition: transform 0.3s ease;
 }
 
-/* Logo do produto */
+.AllProducts:hover {
+  transform: scale(1.02); /* Efeito de zoom ao passar o mouse */
+}
+
+.ProductLogo {
+  width: 100%; /* Garantindo que a imagem ocupe a largura total */
+  height: 200px; /* Altura fixa para o espaço reservado */
+  overflow: hidden; /* Evita que imagens estouram */
+  display: flex; /* Para centralizar a imagem */
+  align-items: center; /* Alinha verticalmente */
+  justify-content: center; /* Alinha horizontalmente */
+  background-color: #eaeaea; /* Cor de fundo enquanto a imagem não carrega */
+}
+
 .ProductLogo img {
-  width: 100%; /* A largura da imagem se ajusta ao contêiner */
-  height: 200px; /* Altura fixa para a imagem */
-  object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem distorcer */
-  border-radius: 8px;
-  margin-bottom: 10px;
+  width: 100%;
+  height: auto; /* Mantém a proporção da imagem */
+  object-fit: cover; /* Cobre a área disponível, recortando se necessário */
+}
+
+.CategoryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 5%;
 }
 
 /* Nome do produto */
@@ -56,22 +77,18 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 8px;
+  margin-top: 8px;
   text-align: center;
+}
 
-  h1 {
-    color:#cf8c95 
-  }
+.ProductName h1 {
+  color: #cf8c95;
 }
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
   .AllProducts {
     width: 100%; /* Cada produto ocupará 100% da largura da tela em dispositivos menores */
-    height: 350px; /* Ajusta a altura para telas menores */
-  }
-
-  .ProductLogo img {
-    height: 150px; /* Ajusta a altura da imagem em dispositivos menores */
+    height: auto; /* Altura automática para melhor adaptação */
   }
 }
