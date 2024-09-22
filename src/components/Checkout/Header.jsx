@@ -15,7 +15,7 @@ export default function Header() {
         <h1>Checkout</h1>
       </div>
       <div className="Cart">
-        <Link to="/">
+        <Link to="/checkout">
           <FontAwesomeIcon icon={faShoppingCart} />
         </Link>
       </div>
