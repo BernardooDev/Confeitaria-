@@ -1,23 +1,28 @@
 import { Link } from "react-router-dom";
 import Logo from "../assets/Logo.png";
 import "../styles/Homepage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const HomePage = () => {
   return (
     <div>
-      <div className="HeaderTop">
-        <header className="Header">
-          <div className="Logo">
-            <img src={Logo} alt="Logo da confeitaria" />
-          </div>
-          <div className="TextCenter">
-            <h1 className="Title">Senhorita Confeitaria</h1>
-            <p className="Text">Momentos especiais, merecem doces especiais!</p>
-          </div>
-        </header>
-      </div>
+      <header className="Header">
+        <div className="HeaderLogo">
+          <img src={Logo} alt="Logo da confeitaria" />
+        </div>
+        <nav className="HeaderNav">
+          <Link to="/retirada">Retirada</Link>
+          <Link to="/encomenda">Encomenda</Link>
+        </nav>
+        <div className="HeaderLogin">
+          <Link to="/login">
+            <FontAwesomeIcon icon={faUser} size="lg" />
+          </Link>
+        </div>
+      </header>
 
-      <main>
+      <main className="MainContent">
         <div className="Orders">
           <h1>
             <Link to="/retirada">
@@ -34,7 +39,9 @@ const HomePage = () => {
         </div>
         <div className="Orders">
           <h1>
-            <span>PROMOÇÕES!</span>
+          <Link to="/encomenda">
+              <span>PROMOÇÕES!</span>
+            </Link>
           </h1>
         </div>
       </main>

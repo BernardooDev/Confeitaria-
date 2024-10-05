@@ -2,9 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
-const pedidosRoutes = require('./api/routes/pedidos');
-const categoriasRoutes = require('./api/routes/categorias');
-const itensRoutes = require("./api/routes/itens")
+// const pedidosRoutes = require('./routes/pedidos');
+const categoriasRoutes = require('./routes/categorias');
+const itensRoutes = require("./routes/itens");
+const authRoutes = require("./routes/authRoutes");
+const CheckoutRoute = require("./routes/checkout");
+const PerfilRoute = require("./routes/perfil")
 
 const app = express();
 app.use(cors());
@@ -15,9 +18,12 @@ app.get('/', (req, res) => {
 });
 
 // Usar as rotas de pedidos
-app.use('/api/pedidos', pedidosRoutes);
-app.use('/api/categorias', categoriasRoutes);
-app.use("/api/itens", itensRoutes)
+// app.use('/pedidos', pedidosRoutes);
+app.use('/categorias', categoriasRoutes);
+app.use("/itens", itensRoutes)
+app.use('/auth', authRoutes);
+app.use("checkout", CheckoutRoute)
+app.use('/perfil' , PerfilRoute)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));

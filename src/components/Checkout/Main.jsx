@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCart } from "../../State/CartContext"; // Usar o contexto do carrinho
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate  } from "react-router-dom";
 
 export default function Checkout() {
+  const navigate  = useNavigate ();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token'); // Captura o token armazenado
+    if (!token) {
+      navigate('/login'); 
+    }
+  }, [navigate]);
+
   const { addToCart, removeFromCart, cart } = useCart();
 
   return (

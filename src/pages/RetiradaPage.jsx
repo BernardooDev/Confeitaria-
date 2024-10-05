@@ -1,11 +1,10 @@
 import React from 'react';
 import Retirada from '../components/Retirada/Retirada';
 
-const RetiradaPage = () => {
+export default function RetiradaPage() {
   return (
     <Retirada>
     </Retirada>
-  );
+  )
 }
 
-export default RetiradaPage;

@@ -1,0 +1,76 @@
+body {
+  background-color: #fafafa;
+  font-family: "Poppins", sans-serif;
+}
+
+.PerfilHeader {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #cf8c95;
+  color: whitesmoke;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  box-shadow: -1px 10px 29px -21px rgba(0, 0, 0, 0.75);
+  font-size: 1.6rem;
+  overflow: hidden;
+
+  @media (max-width: 575px) {
+    width: 100%;
+    height: 15vh;
+  }
+}
+
+.ProfileContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ProfileContainer h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .ProfileDetails {
+    margin-top: 20px;
+  }
+  
+  .ProfileDetails p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .OrderList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .OrderItem {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .OrderItem p {
+    margin: 5px 0;
+  }
+  
+  .OrderItem strong {
+    color: #333;
+  }
+  

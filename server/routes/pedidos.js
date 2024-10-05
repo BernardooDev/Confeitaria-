@@ -1,10 +1,9 @@
 // server/routes/pedidos.js
 const express = require('express');
 const router = express.Router();
-const db = require('../../db');
+const db = require('../db');
 
-// Rota para criar um pedido
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   const { cliente, itens } = req.body;
 
   const query = 'INSERT INTO pedidos (cliente, itens) VALUES (?, ?)';

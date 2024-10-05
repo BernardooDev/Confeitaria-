@@ -10,24 +10,29 @@ import CupcakesPage from "./pages/CupcakesPage";
 import BiscoitosPage from "./pages/BiscoitosPage";
 import { CartProvider } from "./State/CartContext";
 import CheckoutPage from "./pages/CheckoutPage";
+import LoginPage from "./pages/LoginPage";
+import RegistroPage from "./pages/RegistroPage";
+import Perfilpage from "./pages/PerfilPage";
 
 const App = () => {
   return (
     <CartProvider>
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/retirada" element={<RetiradaPage />} />
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/retirada" element={<RetiradaPage />} />
           <Route path="bolo-de-pote" element={<Bolos />} />
           <Route path="tortas" element={<Tortas />} />
-          <Route path="cupcakes" element={<CupcakesPage /> } /> 
+          <Route path="cupcakes" element={<CupcakesPage />} />
           <Route path="biscoitos" element={<BiscoitosPage />} />
-        <Route path="/encomenda" element={<EncomendaPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-      </Routes>
-    </Router>
+          <Route path="/encomenda" element={<EncomendaPage />} />
+          <Route path="/perfil" element={<Perfilpage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/registro" element={<RegistroPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+        </Routes>
+      </Router>
     </CartProvider>
-
   );
 };
 

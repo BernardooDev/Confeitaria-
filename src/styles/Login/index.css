@@ -1,0 +1,107 @@
+body {
+  background-color: #fafafa;
+  font-family: "Poppins", sans-serif;
+}
+
+.LoginHeader {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #cf8c95;
+  color: whitesmoke;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  box-shadow: -1px 10px 29px -21px rgba(0, 0, 0, 0.75);
+  font-size: 1.6rem;
+  overflow: hidden;
+
+  @media (max-width: 575px) {
+    width: 100%;
+    height: 15vh;
+  }
+}
+
+.LoginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: #f9f9f9;
+}
+
+.LoginForm {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 35%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #cf8c95;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.InputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.LoginButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #cf8c95;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.LoginButton:hover {
+  background-color: #b87684;
+}
+
+.RegisterPrompt {
+  text-align: center; /* Centraliza a mensagem */
+  margin-top: 15px; /* Margem acima da mensagem */
+  color: #333; /* Cor do texto */
+}
+
+.RegisterPrompt a {
+  color: #cf8c95; /* Cor do link */
+  text-decoration: none; /* Remove o sublinhado */
+  font-weight: bold; /* Torna o texto em negrito */
+}
+
+.RegisterPrompt a:hover {
+  text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+.ErrorMessage {
+  color: red; /* Cor da mensagem de erro */
+  margin-bottom: 15px;
+  text-align: center; /* Centraliza a mensagem */
+}
