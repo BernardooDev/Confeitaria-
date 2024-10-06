@@ -23,54 +23,102 @@ body {
   }
 }
 
+.ProfileMain {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .ProfileContainer {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .ProfileContainer h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  .ProfileDetails {
-    margin-top: 20px;
-  }
-  
-  .ProfileDetails p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    color: #333;
-    margin-top: 20px;
-  }
-  
-  .OrderList {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .OrderItem {
-    padding: 15px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .OrderItem p {
-    margin: 5px 0;
-  }
-  
-  .OrderItem strong {
-    color: #333;
-  }
-  
+  width: 40%;
+  border: 1px solid;
+  height: 40%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ProfilePicture {
+  border: 1px solid;
+  width: 50%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  justify-content: center;
+}
+
+.ImgProfile {
+  border: 1px solid;
+  background-color: #ddd;
+  width: 60%;
+  height: 80%;
+  border-radius: 100%;
+}
+
+.UserProfile {
+  width: 40%;
+  height: 50%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ProfileCard h1 {
+    color: #cf8c95; /* Cor rosa suave */
+    font-size: 2rem;
+    font-weight: 600; /* Semibold */
+}
+
+.userDetails {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  justify-content: c;
+}
+
+.userDetails h1 {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.ProfileDetails {
+  margin-top: 20px;
+}
+
+h2 {
+  color: #333;
+  margin-top: 20px;
+}
+
+.OrderList {
+  list-style: none;
+  padding: 0;
+}
+
+.OrderItem {
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.OrderItem p {
+  margin: 5px 0;
+}
+
+.OrderItem strong {
+  color: #333;
+}

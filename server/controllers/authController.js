@@ -1,28 +1,37 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
+const JWT_SECRET = 'seu-segredo-super-seguro';
 
-const generateJWTSecret = () => {
-    return crypto.randomBytes(32).toString('hex'); // Gera 32 bytes de dados aleatórios em formato hexadecimal
-};
-
-const JWT_SECRET = generateJWTSecret();
-
-const users = [
-    {
-        username: "bernardo",
-        password: "senha123"
-    }
-]; 
+const users = []; 
 
 const registerUser = async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, idade, endereco } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = { username, password: hashedPassword };
+    const newUser = { 
+        username, 
+        password: hashedPassword,
+        idade, 
+        endereco,
+        pedidos: [] 
+    };
     users.push(newUser);
-    const token = jwt.sign({ username: newUser.username }, JWT_SECRET, { expiresIn: '1h' });
-    res.status(201).json({ message: `Usuário registrado com sucesso!`, token, username});
+    
+    const token = jwt.sign({ 
+        username: newUser.username, 
+        idade: newUser.idade, 
+        endereco: newUser.endereco,
+        pedidos: newUser.pedidos 
+    }, JWT_SECRET, { expiresIn: '1h' });
+    
+    res.status(201).json({ 
+        message: `Usuário registrado com sucesso!`, 
+        token, 
+        username,
+        idade, 
+        endereco
+    });
 };
+
 
 // Login de usuário
 const loginUser = async (req, res) => {
@@ -40,7 +49,13 @@ const loginUser = async (req, res) => {
 
     // Gerar token JWT
     const token = jwt.sign({ username: user.username }, JWT_SECRET, { expiresIn: '1h' });
-    res.json({ message: 'Login bem-sucedido!', token });
+    // Retornar dados do usuário junto com o token
+    res.json({ message: 'Login bem-sucedido!', token, user: { 
+        username: user.username,
+        idade: user.idade,
+        endereco: user.endereco,
+        pedidos: user.pedidos
+    } });
 };
 
 const getUser = async (req, res) => {

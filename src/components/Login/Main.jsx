@@ -12,11 +12,10 @@ const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    const token = localStorage.getItem('token'); // Captura o token armazenado
+    const token = localStorage.getItem("token"); // Captura o token armazenado
     if (token) {
-      navigate('/perfil'); 
+      navigate("/perfil");
       return; // Impede a execução adicional
     }
   }, [navigate]);
@@ -28,54 +27,49 @@ const Main = () => {
         username,
         password,
       });
-      const { token } = response.data; // Captura o token da resposta
+      const { token, user } = response.data; // Captura o token e o usuário da resposta
       localStorage.setItem("token", token); // Armazena o token no localStorage
-      navigate("/perfil"); // Redireciona para o perfil
+      localStorage.setItem("userData", JSON.stringify(user)); // Armazena os dados do usuário no localStorage
+      navigate(-1);
       window.location.reload();
     } catch (error) {
       console.error("Erro no login:", error);
-      // Exibir mensagem de erro
+      setErrorMessage("Erro ao realizar login. Tente novamente."); // Exibir mensagem de erro
     }
-     }
-    const handleLogout = () => {
-      localStorage.removeItem("token"); // Remove o token
-      setIsLoggedIn(false); // Atualiza o estado para deslogado
-    };
-
-    return (
-      <div className="LoginContainer">
-          <form onSubmit={handleSubmit} className="LoginForm">
-            <h2>Login</h2>
-            <div className="InputContainer">
-              <label htmlFor="username">Username</label>
-              <input
-                type="username"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-            </div>
-            <div className="InputContainer">
-              <label htmlFor="password">Senha</label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="LoginButton">
-              Entrar
-            </button>
-            <p className="RegisterPrompt">
-              Não possui conta? <Link to="/registro">Registre-se</Link>
-            </p>
-          </form>
-      </div>
-    );
   };
-
+  return (
+    <div className="LoginContainer">
+      <form onSubmit={handleSubmit} className="LoginForm">
+        <h2>Login</h2>
+        <div className="InputContainer">
+          <label htmlFor="username">Username</label>
+          <input
+            type="username"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className="InputContainer">
+          <label htmlFor="password">Senha</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="LoginButton">
+          Entrar
+        </button>
+        <p className="RegisterPrompt">
+          Não possui conta? <Link to="/registro">Registre-se</Link>
+        </p>
+      </form>
+    </div>
+  );
+};
 
 export default Main;

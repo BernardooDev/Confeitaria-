@@ -1,16 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const authenticateToken = require("../middlerwares/authMiddleware");
 
-router.get('/',  async(req, res) => {
-    console.log('Usuário autenticado:', req.username);
-    const user = req.username
-    if (!user) {
-        console.log('Usuário não encontrado'); // Log se o usuário não for encontrado
-        return res.status(404).json({ message: 'Usuário não encontrado' });
-    }
+router.get("/", authenticateToken, (req, res) => {
+    console.log("Usuário autenticado:", req.user);
+    const user = req.user.username; // username é uma string
+    const endereco = req.user.endereco; // endereco é uma string
+    const idade = req.user.idade; // idade é uma string
+    const pedidos = req.user.pedidos; // pedidos é um array
 
-    console.log('Usuário encontrado:', user); // Log do usuário encontrado
-    res.status(200).json(user); // Retorna os dados do usuário
+    console.log("Usuário encontrado:", user, endereco, idade, pedidos);
+    res.status(200).json({
+        username: user,
+        idade: idade,
+        endereco: endereco,
+        pedidos: pedidos,
+        message: "Perfil carregado com sucesso!"
+    });
 });
 
 module.exports = router;

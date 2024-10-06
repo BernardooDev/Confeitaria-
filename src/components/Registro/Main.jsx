@@ -6,6 +6,8 @@ import "../../styles/Login/index.css";
 const Main = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [idade, setIdade] = useState(""); // Novo estado para idade
+  const [endereco, setEndereco] = useState(""); // Novo estado para endereço
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -25,10 +27,12 @@ const Main = () => {
       const response = await axios.post("http://localhost:3306/auth/registro", {
         username,
         password,
+        idade, // Envia idade
+        endereco // Envia endereço
       });
       localStorage.setItem("token", response.data.token); 
       setIsLoggedIn(true);
-      navigate("/perfil"); 
+      navigate("/"); 
       window.location.reload();
     } catch (error) {
       console.error("Erro no registro:", error);
@@ -72,6 +76,26 @@ const Main = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="InputContainer">
+            <label htmlFor="idade">Idade</label>
+            <input
+              type="number"
+              id="idade"
+              value={idade}
+              onChange={(e) => setIdade(e.target.value)}
+              required
+            />
+          </div>
+          <div className="InputContainer">
+            <label htmlFor="endereco">Endereço</label>
+            <input
+              type="text"
+              id="endereco"
+              value={endereco}
+              onChange={(e) => setEndereco(e.target.value)}
               required
             />
           </div>
