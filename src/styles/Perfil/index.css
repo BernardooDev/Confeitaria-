@@ -23,15 +23,23 @@ body {
   }
 }
 
+.userLogout {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 15%;
+}
+
 .ProfileMain {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   background-color: #f4f4f9;
   padding: 20px;
   box-sizing: border-box;
+  flex-direction: column;
 }
 
 .ProfileContainer {
@@ -62,6 +70,15 @@ body {
   margin-bottom: 20px;
   font-weight: 600;
   text-align: center;
+}
+
+.btn-admin {
+  background-color: #cf8c95; /* Verde */
+  color: white; /* Texto branco */
+  padding: 10px 20px; /* Espaçamento interno */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro */
 }
 
 .userDetails h1 {

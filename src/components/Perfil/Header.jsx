@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
@@ -17,16 +17,8 @@ export default function Header() {
         <h1>Cliente</h1>
       </div>
       <div className="Cart">
-        <Link to="/checkout">
-          <button
-            onClick={() => {
-              localStorage.removeItem("token");
-              navigate("/login");
-            }}
-            className="LogoutButton"
-          >
-            <FontAwesomeIcon icon={faXmark} />
-          </button>
+      <Link to="/checkout">
+          <FontAwesomeIcon icon={faShoppingCart} />
         </Link>
       </div>
     </header>

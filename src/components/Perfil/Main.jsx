@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Endereco from "./Endereco";
 import Pedidos from "./Pedidos";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Main = () => {
   const [userData, setUserData] = useState(null);
@@ -36,6 +38,10 @@ const Main = () => {
     fetchUserProfile();
   }, []);
 
+  const handleAdminNavigate = () => {
+    navigate("/admin");
+  };
+
   const toggleAddressForm = () => setShowAddressForm(!showAddressForm);
 
   const handleDeleteAddress = async () => {
@@ -60,6 +66,24 @@ const Main = () => {
 
   return (
     <div className="ProfileMain">
+      {userData.tipo_cliente === 1 && (
+        <button onClick={handleAdminNavigate} className="btn-admin">
+          Portal Admin
+        </button>
+      )}
+      <div className="userLogout">
+        <h2>Deslogar</h2>
+        <button
+          onClick={() => {
+            localStorage.removeItem("token");
+            navigate("/login");
+          }}
+          className="btn-admin"
+          aria-label="Logout"
+        >
+          <FontAwesomeIcon icon={faSignOutAlt} />
+        </button>
+      </div>
       <div className="UserProfile">
         <div className="ProfileCard">
           <h1>Detalhes do Perfil:</h1>
