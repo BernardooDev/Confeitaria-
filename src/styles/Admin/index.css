@@ -27,18 +27,18 @@ body {
   display: flex;
   height: 100vh;
   font-family: Arial, sans-serif;
+  width: 100vw;
 }
 
 .admin-sidebar {
-  width: 20%;
+  width: 20vw;
   background-color: #cf8c95;
   color: whitesmoke;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   height: 100vh;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 2%;
 }
 
 .admin-title {
@@ -534,3 +534,35 @@ body {
     font-size: 1.5rem; /* Tamanho do texto de erro */
   }
   
+  @media (max-width: 768px) {
+    .admin-container {
+      flex-direction: row; /* Sidebar e conteúdo lado a lado em telas menores */
+    }
+  
+    .admin-sidebar {
+      width: 200px; /* Pode ajustar a largura da sidebar se necessário */
+      height: auto; /* Ajusta a altura */
+      padding: 10px; /* Ajusta o padding */
+    }
+  
+    .admin-content {
+      width: calc(100% - 200px); /* Ajusta a largura do conteúdo */
+      padding: 40px; /* Espaço generoso ao redor do conteúdo */
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .admin-container {
+      flex-direction: column; /* Sidebar e conteúdo em coluna para telas muito pequenas */
+    }
+  
+    .admin-sidebar {
+      width: 100%; /* A sidebar ocupa toda a largura */
+      padding: 10px; /* Diminui o padding ainda mais */
+    }
+  
+    .admin-content {
+      width: 100%; /* O conteúdo ocupa toda a largura */
+      padding: 30px; /* Mantém um bom espaço ao redor do conteúdo */
+    }
+  }

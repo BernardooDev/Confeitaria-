@@ -26,7 +26,7 @@ router.get('/:id_categoria_produto', async (req, res) => {
     // Buscar produtos filtrados por categoria
     const { data, error } = await supabase
       .from("produto")
-      .select("id, id_categoria_produto, nome_produto, preco_produto, descricao_produto")
+      .select("id, id_categoria_produto, nome_produto, preco_produto, descricao_produto, url_imagem")
       .eq("id_categoria_produto", id_categoria_produto);
 
     if (error || !data) {

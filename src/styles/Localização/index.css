@@ -38,7 +38,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 70vh;
   width: 100%;
 }
 
@@ -93,16 +93,48 @@ body {
 
 /* Responsividade */
 @media (max-width: 768px) {
+
+  .MainContent {
+    height: 50vh;
+  }
+
   .localizacao-container {
     width: 90%;
+    height: 50%;
   }
 
   .localizacao-titulo {
-    font-size: 22px;
+    font-size: 22px; /* Tamanho do título em dispositivos móveis */
   }
 
   .localizacao-endereco,
   .localizacao-telefone {
-    font-size: 16px;
+    font-size: 16px; /* Tamanho do texto em dispositivos móveis */
+  }
+
+  /* Adicionando uma leve expansão nos dispositivos móveis */
+  .localizacao-info {
+    margin-bottom: 20px; /* Espaço inferior maior */
+  }
+
+  .imagem-mapa {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 575px) {
+  .localizacao-titulo {
+    font-size: 24px; /* Aumenta um pouco o título em telas menores */
+  }
+
+  .localizacao-endereco {
+    font-size: 18px; /* Aumenta o endereço */
+  }
+
+  .localizacao-telefone {
+    font-size: 17px; /* Aumenta o telefone */
   }
 }

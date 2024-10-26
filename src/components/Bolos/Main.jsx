@@ -30,7 +30,7 @@ export default function Main() {
         {products.map((product) => (
           <div key={product.id} className="productCard">
             <div className="productLogo">
-              <img src={`path/to/assets/${product.logo}`} alt={product.nome_produto} />
+              <img src={product.url_imagem} alt={product.url_imagem} />
             </div>
             <div className="productDetails">
               <h1 className="productName">{product.nome_produto}</h1>

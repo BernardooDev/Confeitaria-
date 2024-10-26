@@ -30,6 +30,7 @@ export default function Checkout() {
       nome: produto.nome_produto,
       quantidade: produto.quantidade,
       preco: produto.preco_produto,
+      descricao: produto.descricao_produto,
     }));
 
     if (pedido_produtos.length === 0) {
@@ -103,10 +104,11 @@ export default function Checkout() {
                 <div className="SingleProduct">
                   <div key={index} className="checkoutItem">
                     <div className="ProductLogo">
-                      <p> {item.logo} </p>
+                      <img src={item.url_imagem} />  
                     </div>
                     <div className="ProductCheckoutName">
-                      <p className="ProductName">{item.nome_produto}</p>
+                      <h1 className="ProductName">{item.nome_produto}</h1>
+                      <p className="ProductName">{item.descricao_produto}</p>
                     </div>
                     <div className="ProductPrice">
                       <div className="PriceTag">

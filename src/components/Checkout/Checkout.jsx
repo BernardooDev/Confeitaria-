@@ -5,9 +5,9 @@ import "../../styles/Checkout/index.css"
 
 export default function Checkout() {
   return (
-    <div>
+    <>
     <Header></Header>
     <Main></Main>
-    </div>
+    </>
   )
 }

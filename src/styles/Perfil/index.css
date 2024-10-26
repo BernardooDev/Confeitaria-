@@ -257,3 +257,83 @@ h2 {
   background-color: #cf8c95;
   border-radius: 4px;
 }
+
+
+@media (max-width: 768px) {
+  .ProfileMain {
+    padding: 15px;
+  
+  }
+
+  .UserProfile {
+    padding: 15px;
+    width: 100vw;
+  }
+
+  .ProfileCard h1 {
+    font-size: 1.3rem;
+  }
+
+  .userDetails h1 {
+    font-size: 1rem;
+  }
+
+  .singleAddress {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .ButtonAddAddress {
+    width: 100%;
+  }
+
+  .userAddress {
+    font-size: small;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+    .singleAddress {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  .PedidoContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    text-align: center;
+    align-items: flex-start;
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 480px) {
+  .ProfileMain {
+    padding: 10px;
+  }
+
+  .UserProfile {
+    padding: 10px;
+  }
+
+  .ProfileCard h1 {
+    font-size: 1.2rem;
+  }
+
+  .userDetails h1 {
+    font-size: 0.9rem;
+  }
+
+  .singleAddress {
+    padding: 6px;
+  }
+
+  .ButtonAddAddress {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
