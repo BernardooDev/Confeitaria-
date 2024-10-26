@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="BiscoitoHeader">
       <div className="Modal">
-        <Link to="/retirada">
+        <Link to="/produtos">
           <FontAwesomeIcon icon={faArrowLeft} />
         </Link>
       </div>

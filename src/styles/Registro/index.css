@@ -22,13 +22,22 @@ body {
       height: 15vh;
     }
   }
+
+  .MainContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
   
   .RegisterContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 80vh;
+    width: 100%;
     background-color: #f9f9f9;
+
   }
   
   .RegisterForm {

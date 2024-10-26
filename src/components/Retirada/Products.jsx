@@ -7,7 +7,7 @@ import Pie from "../../assets/Pie.jpg";
 
 export default function Products() {
   const categories = [
-    { id: 1, name: "Bolo de Pote", link: "/bolo-de-pote", logo: Cake },
+    { id: 1, name: "Bolos", link: "/bolos", logo: Cake },
     { id: 2, name: "Tortas", link: "/tortas", logo: Pie },
     { id: 3, name: "Cupcakes", link: "/cupcakes", logo: CupCake },
     { id: 4, name: "Biscoitos", link: "/biscoitos", logo: Cookie },

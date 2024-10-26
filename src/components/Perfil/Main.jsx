@@ -1,34 +1,62 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../../styles/Perfil/index.css";
+import Endereco from "./Endereco";
+import Pedidos from "./Pedidos";
 
 const Main = () => {
   const [userData, setUserData] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [showAddressForm, setShowAddressForm] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          setErrorMessage("Usuário não autenticado.");
+          setLoading(false);
+          navigate("/");
+          return;
+        }
+        const response = await axios.get("http://localhost:3306/perfil", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setUserData(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar perfil do usuário:", error);
+        setErrorMessage("Erro ao carregar perfil do usuário.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
+  const toggleAddressForm = () => setShowAddressForm(!showAddressForm);
+
+  const handleDeleteAddress = async () => {
     const token = localStorage.getItem("token");
-    const storedUserData = localStorage.getItem("userData");
-
-    if (!token) {
-      console.warn("Token não encontrado, redirecionando para o login.");
-      navigate("/login"); // Redireciona se não houver token
-      return;
+    try {
+      await axios.delete("http://localhost:3306/perfil/endereco_cliente", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setUserData((prevData) => ({
+        ...prevData,
+        endereco: null,
+      }));
+    } catch (error) {
+      console.error("Erro ao excluir endereço:", error);
     }
+  };
 
-    if (storedUserData) {
-      setUserData(JSON.parse(storedUserData)); // Carrega os dados do usuário armazenados
-    } else {
-      console.warn("Dados do usuário não encontrados.");
-      navigate("/login"); // Redireciona se não houver dados do usuário
-    }
-  }, [navigate]);
-
-  if (!userData) {
-    return <p>Carregando perfil...</p>;
-  }
+  if (loading) return <div>Carregando...</div>;
+  if (errorMessage) return <div>{errorMessage}</div>;
 
   return (
     <div className="ProfileMain">
@@ -37,28 +65,63 @@ const Main = () => {
           <h1>Detalhes do Perfil:</h1>
           <div className="userDetails">
             <h1>
-              <strong>Nome:</strong> {userData.username}
+              <strong>Nome:</strong> {userData?.nome}
             </h1>
             <h1>
-              <strong>Idade:</strong> {userData.idade}
+              <strong>Email:</strong> {userData?.email}
             </h1>
             <h1>
-              <strong>Endereço:</strong> {userData.endereco}
+              <strong>Telefone:</strong> {userData?.telefone}
             </h1>
+            <div className="userAddress">
+              <h1>Endereço:</h1>
+              {userData?.endereco && userData.endereco.length > 0 ? (
+                <div className="singleAddress">
+                  {userData.endereco.map((endereco, index) => (
+                    <div key={index} className="singleAddress">
+                      <p>
+                        <strong>Rua:</strong> {endereco.rua_endereco}
+                      </p>
+                      <p>
+                        <strong>Número:</strong> {endereco.numero_endereco}
+                      </p>
+                      <p>
+                        <strong>Bairro:</strong> {endereco.bairro_endereco}
+                      </p>
+                      <p>
+                        <strong>CEP:</strong> {endereco.cep_endereco}
+                      </p>
+                      <p>
+                        <button
+                          onClick={() =>
+                            handleDeleteAddress(endereco.cliente_id)
+                          }
+                        >
+                          Excluir Endereço
+                        </button>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <>
+                  <p>
+                    <strong>
+                      Nenhum endereço disponível. Adicione um novo abaixo:
+                    </strong>
+                  </p>
+                  <button
+                    className="ButtonAddAddress"
+                    onClick={toggleAddressForm}
+                  >
+                    Adicionar Endereço
+                  </button>
+                  {showAddressForm && <Endereco />}
+                </>
+              )}
+            </div>
           </div>
-
-          <div className="user-orders">
-            <h1>Pedidos:</h1>
-            {userData.pedidos.length > 0 ? (
-              <ul>
-                {userData.pedidos.map((pedido, index) => (
-                  <li key={index}>{pedido}</li>
-                ))}
-              </ul>
-            ) : (
-              <p className="list-empty">Nenhum pedido encontrado.</p>
-            )}
-          </div>
+          <Pedidos></Pedidos>
         </div>
       </div>
     </div>

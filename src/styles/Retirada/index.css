@@ -12,6 +12,19 @@ body {
   color: whitesmoke;
   box-shadow: -1px 10px 29px -21px rgba(0, 0, 0, 0.75);
   font-size: 1.6rem;
+  color: whitesmoke;
+  font-weight: bold;
+
+  .Text {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+
+    h1 {
+      margin-right: 5%;
+    }
+  }
 
   @media (max-width: 575px) {
     width: 100%;

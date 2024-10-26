@@ -1,41 +1,28 @@
-import React from "react";
-import { useCart } from "../../State/CartContext";
-
-const products = [
-  {
-    id: 1,
-    name: "Bolo de Chocolate",
-    price: 20.00,
-    logo: "bolo_chocolate.png",
-    details: "Massa de chocolate com recheio de brigadeiro de coco.",
-  },
-  {
-    id: 2,
-    name: "Bolo de Morango",
-    price: 25.00,
-    logo: "bolo_morango.png",
-    details: "Massa leve de baunilha com recheio cremoso de morango fresco.",
-  },
-  {
-    id: 3,
-    name: "Bolo de Coco",
-    price: 20.00,
-    logo: "bolo_coco.png",
-    details:
-      "Massa fofinha de coco com recheio de creme de leite condensado e coco ralado.",
-  },
-  {
-    id: 4,
-    name: "Bolo de Limão",
-    price: 18.00,
-    logo: "bolo_limao.png",
-    details:
-      "Massa cítrica de limão com recheio de creme suave de limão siciliano.",
-  },
-];
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useCart } from  "../../State/CartContext";
 
 export default function Main() {
+  const [products, setProducts] = useState([]); 
   const { addToCart, removeFromCart, cart } = useCart(); 
+
+  useEffect(() => {
+    const fetchProductsByCategory = async () => {
+      try {
+        const response = await axios.get("http://localhost:3306/produtos/1"); 
+        if (response.data && Array.isArray(response.data.produtos)) {
+          setProducts(response.data.produtos);
+          console.log(response.data.produtos)
+        } else {
+          console.error("Formato inesperado da resposta:", response.data);
+        }
+      } catch (error) {
+        console.error("Erro ao buscar produtos:", error);
+      }
+    };
+
+    fetchProductsByCategory();
+  }, []);
 
   return (
     <div className="productContainer">
@@ -43,20 +30,20 @@ export default function Main() {
         {products.map((product) => (
           <div key={product.id} className="productCard">
             <div className="productLogo">
-              <img src={`path/to/assets/${product.logo}`} alt={product.name} />
+              <img src={`path/to/assets/${product.logo}`} alt={product.nome_produto} />
             </div>
             <div className="productDetails">
-              <h1 className="productName">{product.name}</h1>
-              <p className="productDescription"> {product.details} </p>
-              <span className="productPrice">R$ {product.price}</span>
+              <h1 className="productName">{product.nome_produto}</h1>
+              <p className="productDescription"> {product.descricao_produto} </p>
+              <span className="productPrice">R$ {product.preco_produto}</span>
             </div>
             <div className="AddToCart">
               <div className="SumtoCart">
                 <button onClick={() => removeFromCart(product.id)}>-</button>
                 <p>
-                  {cart.find((item) => item.id === product.id)?.quantity || 0}
+                  {cart.find((item) => item.id === product.id)?.quantidade || 0}
                 </p>
-                <button onClick={() => addToCart(product)}>+</button>
+                <button onClick={() => addToCart(product)}>+</button> 
               </div>
               <div className="ButtonToCart">
                 <button> Adicionar </button>

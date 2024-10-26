@@ -1,0 +1,108 @@
+body {
+  background-color: #fafafa;
+  font-family: "Poppins", sans-serif;
+}
+
+.LocalHeader {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #cf8c95;
+  color: whitesmoke;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  box-shadow: -1px 10px 29px -21px rgba(0, 0, 0, 0.75);
+  font-size: 1.6rem;
+  overflow: hidden;
+
+  .Text {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+
+    h1 {
+      margin-right: 5%;
+    }
+  }
+
+  @media (max-width: 575px) {
+    width: 100%;
+    height: 15vh;
+  }
+}
+
+.MainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+}
+
+.localizacao-container {
+  background-color: #cf8c95;
+  width: 40%;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.localizacao-titulo {
+  font-size: 26px;
+  color: whitesmoke;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.localizacao-info {
+  margin-bottom: 20px;
+}
+
+.localizacao-endereco {
+  font-size: 18px;
+  color: whitesmoke;
+  margin-bottom: 8px;
+  font-family: "Arial", sans-serif;
+}
+
+.localizacao-telefone {
+  font-size: 16px;
+  color: whitesmoke;
+}
+
+.localizacao-mapa {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.imagem-mapa {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .localizacao-container {
+    width: 90%;
+  }
+
+  .localizacao-titulo {
+    font-size: 22px;
+  }
+
+  .localizacao-endereco,
+  .localizacao-telefone {
+    font-size: 16px;
+  }
+}

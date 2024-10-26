@@ -13,6 +13,8 @@ import CheckoutPage from "./pages/CheckoutPage";
 import LoginPage from "./pages/LoginPage";
 import RegistroPage from "./pages/RegistroPage";
 import Perfilpage from "./pages/PerfilPage";
+import LocalPage from "./pages/LocalPage";
+import AdminPage from "./pages/AdminPage";
 
 const App = () => {
   return (
@@ -20,8 +22,8 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/retirada" element={<RetiradaPage />} />
-          <Route path="bolo-de-pote" element={<Bolos />} />
+          <Route path="/produtos" element={<RetiradaPage />} />
+          <Route path="bolos" element={<Bolos />} />
           <Route path="tortas" element={<Tortas />} />
           <Route path="cupcakes" element={<CupcakesPage />} />
           <Route path="biscoitos" element={<BiscoitosPage />} />
@@ -30,6 +32,8 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/registro" element={<RegistroPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/localizacao" element={<LocalPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Router>
     </CartProvider>

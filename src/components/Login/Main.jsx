@@ -3,10 +3,15 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../Perfil/Perfil";
 import "../../styles/Login/index.css";
-import Perfil from "../Perfil/Perfil";
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = "https://ftlkmfucihajaafuvsqy.supabase.co";
+const supabaseAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0bGttZnVjaWhhamFhZnV2c3F5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg0OTkxNDYsImV4cCI6MjA0NDA3NTE0Nn0.hTdTi3a8lyVVbcSLtpWsEpmbAaj9vjn6HBbtLmAjdu8";
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const Main = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -16,38 +21,46 @@ const Main = () => {
     const token = localStorage.getItem("token"); // Captura o token armazenado
     if (token) {
       navigate("/perfil");
-      return; // Impede a execução adicional
+      return; 
     }
   }, [navigate]);
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setErrorMessage(''); // Limpa mensagens de erro anteriores
+
+    // Valida os campos
+    if (!email || !password) {
+      setErrorMessage('E-mail e senha são obrigatórios.');
+      return;
+    }
     try {
-      const response = await axios.post("http://localhost:3306/auth/login", {
-        username,
-        password,
+      const response = await axios.post('http://localhost:3306/auth/login', {
+        email,
+        senha: password,
       });
-      const { token, user } = response.data; // Captura o token e o usuário da resposta
-      localStorage.setItem("token", token); // Armazena o token no localStorage
-      localStorage.setItem("userData", JSON.stringify(user)); // Armazena os dados do usuário no localStorage
-      navigate(-1);
-      window.location.reload();
+      console.log('Login bem-sucedido:', response.data.id);
+      console.log(response.data.token)
+      localStorage.setItem('token', response.data.token); 
+      navigate('/');
     } catch (error) {
-      console.error("Erro no login:", error);
-      setErrorMessage("Erro ao realizar login. Tente novamente."); // Exibir mensagem de erro
+      console.error('Erro ao fazer login:', error.response ? error.response.data : error);
+      setErrorMessage('Credenciais inválidas.');
     }
   };
+
   return (
     <div className="LoginContainer">
-      <form onSubmit={handleSubmit} className="LoginForm">
+      <form onSubmit={handleLogin} className="LoginForm">
+        <h2>{errorMessage && <p>{errorMessage}</p>}</h2>
         <h2>Login</h2>
         <div className="InputContainer">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Email</label>
           <input
-            type="username"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>

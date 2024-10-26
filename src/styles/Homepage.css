@@ -20,7 +20,7 @@
 .HeaderNav {
   display: flex;
   gap: 20px;
-  width: 20%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -32,7 +32,6 @@
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 1.6rem;
-
 }
 
 .HeaderNav a:hover {
@@ -58,15 +57,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh; /* Ajusta o main para ocupar o espaço abaixo do header */
+  width: 100%;
   background-color: #fafafa;
+  /* Garantir altura mínima para ocupar espaço */
+  min-height: 100vh;
+  /* Permitir scroll se o conteúdo exceder a altura da tela */
+  overflow-y: auto;
+}
+
+.OrdersList {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1 33%;
+}
+
+.MainContent h1 {
+  color: #cf8c95;
+  font-size: 2rem;
+  /* font-weight: bold; */
+  font-family: "Poppins", sans-serif;
+  font-weight: 600; /* Semibold */
 }
 
 .Orders {
   margin-bottom: 20px;
-  width: 40%;
+  width: 20%;
   padding: 20px;
-  background-color: #5a5e61;
+  background-color: #cf8c95;
   color: whitesmoke;
   border-radius: 10px;
   display: flex;
@@ -86,7 +105,7 @@
 }
 
 .Orders a:hover span {
-  color: #cf8c95;
+  color: whitesmoke;
 }
 
 /* Responsividade */

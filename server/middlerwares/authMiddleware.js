@@ -4,6 +4,7 @@ const JWT_SECRET = 'seu-segredo-super-seguro';
 
 const authenticateToken = (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1]; // Pega o token do header
+    console.log('Token:', token); 
 
     if (!token) {
         console.log('Sem token, acesso negado'); 
@@ -16,7 +17,7 @@ const authenticateToken = (req, res, next) => {
             return res.sendStatus(403); 
         }
         req.user = user; 
-        console.log(req.user)
+        console.log('Usuário:', req.user); // Adicione este log
         next(); 
     });
 };

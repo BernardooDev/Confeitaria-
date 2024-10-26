@@ -3,6 +3,7 @@ import Logo from "../assets/Logo.png";
 import "../styles/Homepage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import Carrossel from "../components/Carrossel/Carrossel";
 
 const HomePage = () => {
   return (
@@ -12,8 +13,9 @@ const HomePage = () => {
           <img src={Logo} alt="Logo da confeitaria" />
         </div>
         <nav className="HeaderNav">
-          <Link to="/retirada">Retirada</Link>
+          <Link to="/produtos">Produtos</Link>
           <Link to="/encomenda">Encomenda</Link>
+          <Link to="/localizacao"> Localização</Link>
         </nav>
         <div className="HeaderLogin">
           <Link to="/login">
@@ -23,27 +25,31 @@ const HomePage = () => {
       </header>
 
       <main className="MainContent">
-        <div className="Orders">
-          <h1>
-            <Link to="/retirada">
-              <span>RETIRE SEU DOCE!</span>
-            </Link>
-          </h1>
+        <div className="OrdersList">
+          <div className="Orders">
+            <h1>
+              <Link to="/produtos">
+                <span>RETIRE SEU DOCE!</span>
+              </Link>
+            </h1>
+          </div>
+          <div className="Orders">
+            <h1>
+              <Link to="/encomenda">
+                <span>FAÇA SUA ENCOMENDA!</span>
+              </Link>
+            </h1>
+          </div>
+          <div className="Orders">
+            <h1>
+              <Link to="/encomenda">
+                <span>PROMOÇÕES!</span>
+              </Link>
+            </h1>
+          </div>
         </div>
-        <div className="Orders">
-          <h1>
-            <Link to="/encomenda">
-              <span>FAÇA SUA ENCOMENDA!</span>
-            </Link>
-          </h1>
-        </div>
-        <div className="Orders">
-          <h1>
-          <Link to="/encomenda">
-              <span>PROMOÇÕES!</span>
-            </Link>
-          </h1>
-        </div>
+        <h1>Confira nossos produtos!</h1>
+        <Carrossel></Carrossel>
       </main>
     </div>
   );

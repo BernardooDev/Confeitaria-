@@ -1,0 +1,536 @@
+body {
+  background-color: #fafafa;
+  font-family: "Poppins", sans-serif;
+}
+
+.AdminHeader {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #cf8c95;
+  color: whitesmoke;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  box-shadow: -1px 10px 29px -21px rgba(0, 0, 0, 0.75);
+  font-size: 1.6rem;
+  overflow: hidden;
+
+  @media (max-width: 575px) {
+    width: 100%;
+    height: 15vh;
+  }
+}
+
+.admin-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.admin-sidebar {
+  width: 20%;
+  background-color: #cf8c95;
+  color: whitesmoke;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.admin-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #ecf0f1;
+}
+
+.admin-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-nav-item {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: whitesmoke;
+  transition: background 0.3s, color 0.3s;
+}
+
+.admin-nav-item:hover {
+  background-color: whitesmoke;
+  color: #cf8c95;
+}
+
+.admin-nav-item.active {
+  background-color: whitesmoke;
+  color: #cf8c95;
+}
+
+.admin-content {
+  flex-grow: 1;
+  background-color: #ecf0f1;
+  padding: 40px;
+  overflow-y: auto;
+  width: 80%;
+}
+
+.admin-content h2 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.admin-content p {
+  font-size: 16px;
+  color: #7f8c8d;
+}
+
+.produtos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #f7f7f7;
+  width: 100%;
+  overflow-y: auto;
+  gap: 10px;
+  height: 90%;
+  padding: 2%;
+}
+
+.produtos-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.produtos-container::-webkit-scrollbar {
+  background-color: #cf8c95;
+  border-radius: 4px;
+}
+
+.produto-card {
+  position: relative;
+  width: calc(33.33% - 10px);
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: transform 0.2s ease-in-out;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+}
+
+.produto-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.produto-preco {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.produto-card p {
+  font-size: 16px;
+  color: #7f8c8d;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #cf8c95;
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 10%;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+  .delete-btn:hover {
+    background-color: #c0392b; 
+  }
+
+@media (max-width: 768px) {
+  .produto-card {
+    width: 100%;
+  }
+}
+
+.produtos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #f7f7f7;
+  width: 100%;
+  overflow-y: auto;
+  gap: 10px;
+  height: 90%;
+  padding: 2%;
+}
+
+.produtos-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.produtos-container::-webkit-scrollbar-thumb {
+  background-color: #cf8c95;
+  border-radius: 4px;
+}
+
+.produto-card {
+  position: relative;
+  width: calc(33.33% - 10px);
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.produto-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.produto-preco {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e74c3c; /* Cor do preço */
+}
+
+.produto-card p {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin: 10px 0;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #cf8c95;
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px; /* Altera a altura do botão */
+  border-radius: 50%; /* Altera o border-radius para ficar circular */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b; 
+  transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+  .produto-card {
+    width: 100%; /* Altera para 100% em telas pequenas */
+  }
+}
+
+.pedidos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f7f7f7; /* Mesmo fundo que o produtos */
+    width: 100%;
+    overflow-y: auto;
+    gap: 10px;
+    height: 90%;
+    padding: 2%;
+  }
+  
+  .pedidos-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .pedidos-container::-webkit-scrollbar-thumb {
+    background-color: #cf8c95; /* Mesma cor da scrollbar de produtos */
+    border-radius: 4px;
+  }
+  
+  .pedido-card {
+    position: relative;
+    width: calc(33.33% - 10px); /* Largura similar ao card de produtos */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .pedido-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pedido-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50; /* Mesma cor do título de produtos */
+  }
+  
+  .pedido-status {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e74c3c; /* Cor para o status do pedido, podendo ser vermelha */
+  }
+  
+  .pedido-card p {
+    font-size: 16px;
+    color: #7f8c8d; /* Mesma cor de descrição dos produtos */
+    margin: 10px 0;
+  }
+  
+  .cancelar-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #cf8c95; /* Mesma cor do botão de deletar dos produtos */
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px; /* Alinha o tamanho do botão ao de deletar */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .cancelar-btn:hover {
+    background-color: #c0392b; /* Cor de hover */
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .pedido-card {
+      width: 100%; /* Altera para 100% em telas pequenas */
+    }
+  }
+
+  .clientes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f7f7f7; /* Cor de fundo consistente com os outros containers */
+    width: 100%;
+    overflow-y: auto;
+    gap: 10px;
+    height: 90%;
+    padding: 2%;
+  }
+  
+  .clientes-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .clientes-container::-webkit-scrollbar-thumb {
+    background-color: #cf8c95; /* Mesma cor para scrollbar dos clientes */
+    border-radius: 4px;
+  }
+  
+  .cliente-card {
+    position: relative;
+    width: calc(33.33% - 10px); /* Mesmo tamanho dos cards de produtos e pedidos */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: 1px solid;
+  }
+  
+  .cliente-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cliente-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50; /* Consistência na cor do título */
+  }
+  
+  .cliente-email {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3498db; /* Cor diferente para destacar o e-mail do cliente */
+    margin-bottom: 10px;
+  }
+  
+  .cliente-telefone {
+    font-size: 16px;
+    color: #7f8c8d; /* Mesmo estilo de cor utilizado para o texto secundário */
+    margin-bottom: 5px;
+  }
+  
+  .cliente-tipo {
+    font-size: 16px;
+    color: #e67e22; /* Cor para destacar o tipo de cliente */
+    font-weight: bold;
+  }
+  
+  .cliente-created-at {
+    font-size: 14px;
+    color: #95a5a6; /* Estilo discreto para a data de criação */
+    margin-top: 15px;
+  }
+  
+  .editar-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #cf8c95; /* Mesma cor usada nos outros botões */
+    border: none;
+    color: white;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+
+  .cliente-pedidos {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    height: 50%;
+    border: 1px solid;
+  }
+  
+  .pedidos-titulo {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .pedidos-list {
+    max-height: 150px;
+    overflow-y: auto; 
+  }
+
+  .pedidos-list::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .pedidos-list::-webkit-scrollbar-thumb {
+    background-color: #cf8c95; 
+    border-radius: 4px;
+  }
+  
+  .pedido {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+  }
+
+  .editar-btn:hover {
+    background-color: #2980b9; 
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .cliente-card {
+      width: 100%; /* Ocupa toda a largura da tela em dispositivos móveis */
+    }
+  }
+
+  .dashboard-container {
+    max-width: 800px; /* Limitar a largura do container */
+    margin: 0 auto; /* Centralizar o container */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #f9f9f9; /* Fundo leve */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .dashboard-title {
+    text-align: center; /* Centralizar o título */
+    font-size: 2.5rem; /* Tamanho do título */
+    font-weight: bold; /* Negrito */
+    color: #4A5568; /* Cor do título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+  }
+  
+  .dashboard-item {
+    background-color: #fff; /* Fundo branco para os itens */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 15px; /* Espaçamento interno */
+    margin-bottom: 20px; /* Espaçamento entre os itens */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .item-title {
+    font-size: 1.5rem; /* Tamanho do título do item */
+    color: #2D3748; /* Cor do título do item */
+    margin-bottom: 10px; /* Espaçamento abaixo do título do item */
+  }
+  
+  .item-info {
+    font-size: 1rem; /* Tamanho do texto da informação */
+    color: #4A5568; /* Cor do texto da informação */
+  }
+  
+  .info-label {
+    font-weight: bold; /* Negrito para as labels */
+  }
+  
+  .no-data {
+    color: #A0AEC0; /* Cor do texto quando não há dados */
+    font-style: italic; /* Estilo itálico */
+  }
+  
+  .loading {
+    text-align: center; /* Centralizar o texto de loading */
+    font-size: 1.5rem; /* Tamanho do texto de loading */
+  }
+  
+  .error {
+    text-align: center; /* Centralizar o texto de erro */
+    color: #E53E3E; /* Cor vermelha para erros */
+    font-size: 1.5rem; /* Tamanho do texto de erro */
+  }
+  

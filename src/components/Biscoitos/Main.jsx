@@ -1,57 +1,27 @@
-import React from "react";
-import { useCart } from "../../State/CartContext";
-
-const products = [
-  {
-    id: 1,
-    name: "Biscoito de Chocolate",
-    price: 10.0,
-    logo: "biscoito_chocolate.png",
-    details: "Biscoito crocante com pedaços de chocolate meio amargo.",
-  },
-  {
-    id: 2,
-    name: "Biscoito de Morango",
-    price: 12.0,
-    logo: "biscoito_morango.png",
-    details:
-      "Biscoito amanteigado com pedaços de morango seco e um leve toque de baunilha.",
-  },
-  {
-    id: 3,
-    name: "Biscoito de Coco",
-    price: 11.0,
-    logo: "biscoito_coco.png",
-    details: "Biscoito macio com coco ralado e um toque de leite condensado.",
-  },
-  {
-    id: 4,
-    name: "Biscoito de Limão",
-    price: 13.0,
-    logo: "biscoito_limao.png",
-    details:
-      "Biscoito crocante com sabor intenso de limão e uma cobertura leve de açúcar.",
-  },
-  {
-    id: 5,
-    name: "Biscoito de Amendoim",
-    price: 14.0,
-    logo: "biscoito_amendoim.png",
-    details:
-      "Biscoito de amendoim com pedaços de amendoim crocante e uma leve pitada de sal.",
-  },
-  {
-    id: 6,
-    name: "Biscoito de Canela",
-    price: 12.0,
-    logo: "biscoito_canela.png",
-    details:
-      "Biscoito aromático com canela e açúcar, perfeito para acompanhar um café.",
-  },
-];
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useCart } from  "../../State/CartContext";
 
 export default function Main() {
-  const { addToCart, removeFromCart, cart } = useCart();
+  const [products, setProducts] = useState([]); 
+  const { addToCart, removeFromCart, cart } = useCart(); 
+
+  useEffect(() => {
+    const fetchProductsByCategory = async () => {
+      try {
+        const response = await axios.get("http://localhost:3306/produtos/2"); 
+        if (response.data && Array.isArray(response.data.produtos)) {
+          setProducts(response.data.produtos);
+        } else {
+          console.error("Formato inesperado da resposta:", response.data);
+        }
+      } catch (error) {
+        console.error("Erro ao buscar produtos:", error);
+      }
+    };
+
+    fetchProductsByCategory();
+  }, []);
 
   return (
     <div className="productContainer">
@@ -59,20 +29,20 @@ export default function Main() {
         {products.map((product) => (
           <div key={product.id} className="productCard">
             <div className="productLogo">
-              <img src={`path/to/assets/${product.logo}`} alt={product.name} />
+              <img src={`path/to/assets/${product.logo}`} alt={product.nome_produto} />
             </div>
             <div className="productDetails">
-              <h1 className="productName">{product.name}</h1>
-              <p className="productDescription"> {product.details} </p>
-              <span className="productPrice">R$ {product.price}</span>
+              <h1 className="productName">{product.nome_produto}</h1>
+              <p className="productDescription"> {product.descricao_produto} </p>
+              <span className="productPrice">R$ {product.preco_produto}</span>
             </div>
             <div className="AddToCart">
               <div className="SumtoCart">
                 <button onClick={() => removeFromCart(product.id)}>-</button>
                 <p>
-                  {cart.find((item) => item.id === product.id)?.quantity || 0}
+                  {cart.find((item) => item.id === product.id)?.quantidade || 0}
                 </p>
-                <button onClick={() => addToCart(product)}>+</button>
+                <button onClick={() => addToCart(product)}>+</button> 
               </div>
               <div className="ButtonToCart">
                 <button> Adicionar </button>
