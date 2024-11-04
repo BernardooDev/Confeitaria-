@@ -9,6 +9,7 @@ const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0bGttZnVjaWhhamFhZnV2c3F5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg0OTkxNDYsImV4cCI6MjA0NDA3NTE0Nn0.hTdTi3a8lyVVbcSLtpWsEpmbAaj9vjn6HBbtLmAjdu8";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+
 const registerUser = async (req, res) => {
   const { username, password, idade, endereco } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);

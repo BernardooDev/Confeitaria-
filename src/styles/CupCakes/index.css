@@ -19,3 +19,16 @@ body {
     }
 }
 
+.productLogoCupcake {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+    width: 33%;
+}
+
+.productLogoCupcake img {
+    width: 35%; 
+    height: 50%;
+    object-fit: contain; 
+}

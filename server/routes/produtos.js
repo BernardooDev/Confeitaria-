@@ -6,7 +6,7 @@ const supabase = require("../db/supabase");
 router.get('/', async (req, res) => {
   const { data, error } = await supabase
     .from("produto")
-    .select("id, id_categoria_produto, nome_produto, preco_produto, descricao_produto");
+    .select("id, id_categoria_produto, nome_produto, preco_produto, descricao_produto, url_imagem");
 
   console.log("Produtos:", data);
 

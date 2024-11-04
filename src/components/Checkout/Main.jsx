@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useCart } from "../../State/CartContext"; // Usar o contexto do carrinho
+import { useCart } from "../../State/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom";
 export default function Checkout() {
   const { addToCart, removeFromCart, cart, clearCart } = useCart();
   const token = localStorage.getItem("token");
-  const [message, setMessage] = useState(""); // Estado para a mensagem de sucesso ou erro
+  const [message, setMessage] = useState(""); 
+  const [showPopup, setShowPopup] = useState(true); // Estado para exibir o pop-up
   const navigate = useNavigate();
 
   const calcularValorTotal = () => {
@@ -21,9 +22,17 @@ export default function Checkout() {
     if (!token) {
       navigate("/login");
     }
-  }, [navigate]);
+  }, [navigate, token]);
 
-  const handleSubmit = async (e) => {
+  const handlePopupAccept = () => {
+    setShowPopup(false); // Esconde o pop-up e permite continuar no checkout
+  };
+
+  const handlePopupDecline = () => {
+    navigate(-1); // Redireciona o usuário para a página anterior
+  };
+
+  const handleSubmit = async () => {
     const valor_total = calcularValorTotal();
     const pedido_produtos = cart.map((produto) => ({
       id: produto.id,
@@ -34,41 +43,25 @@ export default function Checkout() {
     }));
 
     if (pedido_produtos.length === 0) {
-      setMessage(
-        "O carrinho está vazio! Adicione produtos antes de confirmar o pedido."
-      );
-      return; // Interrompe o envio se o carrinho estiver vazio
+      setMessage("O carrinho está vazio! Adicione produtos antes de confirmar o pedido.");
+      return;
     }
 
     try {
       const response = await axios.post(
         "http://localhost:3306/pedido_cliente",
-        {
-          valor_total: valor_total,
-          forma_entrega: 2,
-          pedido_status: 2,
-          pedido_produtos,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        { valor_total, forma_entrega: 2, pedido_status: 2, pedido_produtos },
+        { headers: { Authorization: `Bearer ${token}` } }
       );
 
       const handleSendMessage = () => {
         const phoneNumber = "+551193618-3097";
         const pedidoFormatado = pedido_produtos
-          .map(
-            (produto) =>
-              `${produto.nome} (x${produto.quantidade}) - R$${produto.preco}`
-          )
+          .map((produto) => `${produto.nome} (x${produto.quantidade}) - R$${produto.preco}`)
           .join(", ");
-
         const message = encodeURIComponent(
           `Olá, quero realizar um pedido. Produtos: ${pedidoFormatado}. Valor total: R$${valor_total}`
         );
-
         const url = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${message}&type=phone_number&app_absent=0`;
         window.open(url, "_blank");
       };
@@ -89,6 +82,15 @@ export default function Checkout() {
 
   return (
     <div className="MainCheckout">
+      {showPopup && (
+        <div className="PopupOverlay">
+          <div className="Popup">
+            <p>Realizamos o pedido através do WhatsApp. Deseja continuar?</p>
+            <button onClick={handlePopupAccept}>Aceito</button>
+            <button onClick={handlePopupDecline}>Recusar</button>
+          </div>
+        </div>
+      )}
       <h1>
         Carrinho
         <FontAwesomeIcon icon={faShoppingCart} />
@@ -101,10 +103,10 @@ export default function Checkout() {
           <div className="CheckoutProducts">
             <div className="CheckoutProduct">
               {cart.map((item, index) => (
-                <div className="SingleProduct">
-                  <div key={index} className="checkoutItem">
+                <div className="SingleProduct" key={index}>
+                  <div className="checkoutItem">
                     <div className="ProductLogo">
-                      <img src={item.url_imagem} />  
+                      <img src={item.url_imagem} alt={item.nome_produto} />
                     </div>
                     <div className="ProductCheckoutName">
                       <h1 className="ProductName">{item.nome_produto}</h1>
@@ -115,19 +117,9 @@ export default function Checkout() {
                         <p>R$ {item.preco_produto * item.quantidade}</p>
                       </div>
                       <div className="ProductQuantity">
-                        <button
-                          onClick={() => removeFromCart(item.id)}
-                          className="ButtonProduct"
-                        >
-                          -
-                        </button>
+                        <button onClick={() => removeFromCart(item.id)} className="ButtonProduct">-</button>
                         <p>{item.quantidade}</p>
-                        <button
-                          onClick={() => addToCart(item)}
-                          className="ButtonProduct"
-                        >
-                          +
-                        </button>
+                        <button onClick={() => addToCart(item)} className="ButtonProduct">+</button>
                       </div>
                     </div>
                   </div>
@@ -137,14 +129,8 @@ export default function Checkout() {
           </div>
         )}
         <div className="CheckoutTotal">
-          <h1>Total </h1>
-          <span>
-            R$
-            {cart.reduce(
-              (total, item) => total + item.preco_produto * item.quantidade,
-              0
-            )}
-          </span>
+          <h1>Total</h1>
+          <span>R$ {calcularValorTotal()}</span>
           <button onClick={handleSubmit}>Realizar pedido</button>
         </div>
       </div>

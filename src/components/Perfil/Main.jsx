@@ -36,7 +36,7 @@ const Main = () => {
     };
 
     fetchUserProfile();
-  }, []);
+  }, [navigate]);
 
   const handleAdminNavigate = () => {
     navigate("/admin");
@@ -44,17 +44,17 @@ const Main = () => {
 
   const toggleAddressForm = () => setShowAddressForm(!showAddressForm);
 
-  const handleDeleteAddress = async () => {
+  const handleDeleteAddress = async (clienteId) => {
     const token = localStorage.getItem("token");
     try {
-      await axios.delete("http://localhost:3306/perfil/endereco_cliente", {
+      await axios.delete(`http://localhost:3306/perfil/endereco_cliente/${clienteId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       setUserData((prevData) => ({
         ...prevData,
-        endereco: null,
+        endereco: prevData.endereco.filter(end => end.cliente_id !== clienteId),
       }));
     } catch (error) {
       console.error("Erro ao excluir endereço:", error);
@@ -100,52 +100,50 @@ const Main = () => {
             <div className="userAddress">
               <h1>Endereço:</h1>
               {userData?.endereco && userData.endereco.length > 0 ? (
-                <div className="singleAddress">
-                  {userData.endereco.map((endereco, index) => (
-                    <div key={index} className="singleAddress">
-                      <p>
-                        <strong>Rua:</strong> {endereco.rua_endereco}
-                      </p>
-                      <p>
-                        <strong>Número:</strong> {endereco.numero_endereco}
-                      </p>
-                      <p>
-                        <strong>Bairro:</strong> {endereco.bairro_endereco}
-                      </p>
-                      <p>
-                        <strong>CEP:</strong> {endereco.cep_endereco}
-                      </p>
-                      <p>
-                        <button
-                          onClick={() =>
-                            handleDeleteAddress(endereco.cliente_id)
-                          }
-                        >
-                          Excluir Endereço
-                        </button>
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                userData.endereco.map((endereco, index) => (
+                  <div key={index} className="singleAddress">
+                    <p>
+                      <strong>Rua:</strong> {endereco.rua_endereco}
+                    </p>
+                    <p>
+                      <strong>Número:</strong> {endereco.numero_endereco}
+                    </p>
+                    <p>
+                      <strong>Bairro:</strong> {endereco.bairro_endereco}
+                    </p>
+                    <p>
+                      <strong>CEP:</strong> {endereco.cep_endereco}
+                    </p>
+                    <button
+                      className="deleteButton"
+                      onClick={() => handleDeleteAddress(endereco.cliente_id)}
+                    >
+                      Excluir Endereço
+                    </button>
+                  </div>
+                ))
               ) : (
-                <>
-                  <p>
-                    <strong>
-                      Nenhum endereço disponível. Adicione um novo abaixo:
-                    </strong>
-                  </p>
-                  <button
-                    className="ButtonAddAddress"
-                    onClick={toggleAddressForm}
-                  >
-                    Adicionar Endereço
-                  </button>
-                  {showAddressForm && <Endereco />}
-                </>
+                <p>
+                  <strong>
+                    Nenhum endereço disponível. Adicione um novo abaixo:
+                  </strong>
+                </p>
+              )}
+              {/* Exibe o botão "Adicionar Endereço" apenas se não houver endereços */}
+              {userData?.endereco?.length === 0 && !showAddressForm && (
+                <button
+                  className="ButtonAddAddress"
+                  onClick={toggleAddressForm}
+                >
+                  Adicionar Endereço
+                </button>
+              )}
+              {showAddressForm && (
+                <Endereco onClose={() => setShowAddressForm(false)} />
               )}
             </div>
           </div>
-          <Pedidos></Pedidos>
+          <Pedidos />
         </div>
       </div>
     </div>

@@ -82,8 +82,8 @@
   /* Imagem do produto */
   .produto-imagem img {
     width: 100%;
-    max-height: 250px;
-    object-fit: cover;
+    height: 200px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Para preencher o espaço de forma adequada */
     border-radius: 8px;
     margin-bottom: 15px;
     transition: transform 0.3s ease;

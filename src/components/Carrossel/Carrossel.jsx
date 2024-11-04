@@ -53,7 +53,7 @@ const Carrossel = () => {
             </div>
             <div className="produto-imagem">
               <img
-                src={`URL_DA_IMAGEM/${produto.id}`}
+                src={produto.url_imagem}
                 alt={produto.nome_produto}
               />
             </div>

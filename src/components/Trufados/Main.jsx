@@ -9,7 +9,7 @@ export default function Main() {
   useEffect(() => {
     const fetchProductsByCategory = async () => {
       try {
-        const response = await axios.get("http://localhost:3306/produtos/2"); 
+        const response = await axios.get("http://localhost:3306/produtos/3"); 
         if (response.data && Array.isArray(response.data.produtos)) {
           setProducts(response.data.produtos);
           console.log(response.data.produtos)

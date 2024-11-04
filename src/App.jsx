@@ -5,7 +5,7 @@ import RetiradaPage from "./pages/RetiradaPage";
 import EncomendaPage from "./pages/EncomendaPage";
 import Bolos from "./components/Bolos/Bolos";
 import "./index.css";
-import Tortas from "./components/Tortas/Tortas";
+import Trufados from "./components/Trufados/Trufados";
 import CupcakesPage from "./pages/CupcakesPage";
 import BiscoitosPage from "./pages/BiscoitosPage";
 import { CartProvider } from "./State/CartContext";
@@ -15,6 +15,7 @@ import RegistroPage from "./pages/RegistroPage";
 import Perfilpage from "./pages/PerfilPage";
 import LocalPage from "./pages/LocalPage";
 import AdminPage from "./pages/AdminPage";
+import NotFound  from "./components/NotFound";
 
 const App = () => {
   return (
@@ -24,7 +25,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/produtos" element={<RetiradaPage />} />
           <Route path="bolos" element={<Bolos />} />
-          <Route path="tortas" element={<Tortas />} />
+          <Route path="trufados" element={<Trufados />} />
           <Route path="cupcakes" element={<CupcakesPage />} />
           <Route path="biscoitos" element={<BiscoitosPage />} />
           <Route path="/encomenda" element={<EncomendaPage />} />
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/localizacao" element={<LocalPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </CartProvider>

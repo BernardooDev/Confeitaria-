@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Cake from "../../assets/Cake.jpg";
-import CupCake from "../../assets/Cupcake.jpg";
-import Cookie from "../../assets/Cookie.jpg";
-import Pie from "../../assets/Pie.jpg";
+import Cake from "../../assets/Bolo.png";
+import CupCake from "../../assets/Cupcake.webp";
+import Cookie from "../../assets/Cookie.webp";
+import Pie from "../../assets/cone.webp";
 
 export default function Products() {
   const categories = [
     { id: 1, name: "Bolos", link: "/bolos", logo: Cake },
-    { id: 2, name: "Tortas", link: "/tortas", logo: Pie },
+    { id: 2, name: "Cone", link: "/trufados", logo: Pie },
     { id: 3, name: "Cupcakes", link: "/cupcakes", logo: CupCake },
     { id: 4, name: "Biscoitos", link: "/biscoitos", logo: Cookie },
   ];
