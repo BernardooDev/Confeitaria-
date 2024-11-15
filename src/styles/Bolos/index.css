@@ -38,14 +38,13 @@ body {
     flex-wrap: wrap;
     justify-content: space-evenly;
     height: 100%;
-    /* flex-direction: column; */
 }
 
 .productCard {
     width: 30%;
     height: 25%;
     display: flex;
-    justify-content: space-evenly; /* Alinha os elementos com espaçamento uniforme */
+    justify-content: space-evenly; 
     align-items: center;
     padding: 10px;
     background-color: #f7f7f7;
@@ -60,7 +59,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Garante que qualquer conteúdo que ultrapasse os limites da div será cortado */
+    overflow: hidden;
     border-radius: 50px;
     width: 100%;
 }
@@ -74,7 +73,7 @@ body {
 
 .productDetails {
     height: 100%;
-    width: 33%; /* Ocupa 33% do espaço */
+    width: 33%; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,44 +84,53 @@ body {
     border-radius: 8px;
 }
 
-/* Nome do produto */
 .productName {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem; /* Ajuste do tamanho do texto */
+    font-size: 1.2rem; 
     font-weight: bold;
-    color: #333; /* Cor do texto */
-    margin-bottom: 10px; /* Espaço abaixo do nome */
+    color: #333;
+    margin-bottom: 10px; 
     text-align: center;
 }
 
-/* Descrição do produto */
 .productDescription {
-    font-size: 0.8rem; /* Tamanho da fonte para descrição */
-    color: #555; /* Cor do texto */
-    margin-bottom: 8px; /* Espaço abaixo da descrição */
-    line-height: 1.6; /* Altura da linha para melhor leitura */
+    font-size: 0.8rem; 
+    color: #555; 
+    margin-bottom: 8px; 
+    line-height: 1.6; 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    font-weight: bold; 
 }
 
-/* Preço do produto */
 .productPrice {
-    font-size: 1.2rem; /* Tamanho do texto para o preço */
-    color: #CF8C95; /* Cor do texto */
-    font-weight: bold; /* Texto em negrito */
+    font-size: 1.2rem; 
+    color: #CF8C95; 
+    font-weight: bold; 
     align-items: center;
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
-/* Estilo para Adicionar ao Carrinho */
+.priceOriginal {
+    text-decoration: line-through;
+    color: #cf8c95;
+    margin-right: 10px;
+  }
+  
+  .priceDiscounted {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+
+
 .AddToCart {
-    width: 33%; /* Ocupa 33% do espaço */
+    width: 33%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -157,7 +165,6 @@ body {
     background-color: #b77380;
 }
 
-/* Responsividade */
 @media (max-width: 1200px) {
     .productCard {
         width: 45%;

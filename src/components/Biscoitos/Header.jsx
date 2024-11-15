@@ -12,7 +12,7 @@ export default function Header() {
         </Link>
       </div>
       <div className="Text">
-        <h1>RETIRE SEU DOCE!</h1>
+        <h1>Biscoitos</h1>
       </div>
       <div className="Cart">
         <Link to="/checkout">

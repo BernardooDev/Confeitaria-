@@ -122,12 +122,12 @@ body {
 }
 
 .PedidoHeader {
-  display: flex; 
+  display: flex;
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
- }
+}
 
 .PedidoMoney {
   display: flex;
@@ -249,11 +249,9 @@ h2 {
   background-color: #b97a80;
 }
 
-
 .ButtonAddAddress:hover {
   background-color: #b97a80;
 }
-
 
 .ButtonAddAddress {
   background-color: #cf8c95;
@@ -268,7 +266,6 @@ h2 {
   margin-top: 20px;
 }
 
-
 /* Scroll personalizado */
 .PedidoMain::-webkit-scrollbar {
   width: 8px;
@@ -279,11 +276,9 @@ h2 {
   border-radius: 4px;
 }
 
-
 @media (max-width: 768px) {
   .ProfileMain {
     padding: 15px;
-  
   }
 
   .UserProfile {
@@ -421,3 +416,94 @@ h2 {
   text-align: center;
   margin-top: 10px;
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  max-height: 150px;
+  height: 100px;
+  overflow-y: auto;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.modal-buttons button {
+  padding: 12px;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.modal-submit-btn {
+  background-color: #cf8c95;
+  color: white;
+}
+
+.modal-submit-btn:hover {
+  background-color: #a97b8f;
+}
+
+.modal-close-btn {
+  color: black;
+  font-size: large;
+  font-weight: bold;
+}
+
+.modal-close-btn:hover {
+  scale: 1.2;
+}
+

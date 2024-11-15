@@ -16,6 +16,8 @@ import Perfilpage from "./pages/PerfilPage";
 import LocalPage from "./pages/LocalPage";
 import AdminPage from "./pages/AdminPage";
 import NotFound  from "./components/NotFound";
+import PromocoesPage from "./pages/PromocoesPage";
+import AvaliacoesPage from "./pages/AvaliacoesPage";
 
 const App = () => {
   return (
@@ -35,6 +37,8 @@ const App = () => {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/localizacao" element={<LocalPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/promocoes" element={<PromocoesPage /> } />
+          <Route path="/avaliacoes" element={<AvaliacoesPage /> } />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

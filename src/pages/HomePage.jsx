@@ -29,21 +29,21 @@ const HomePage = () => {
           <div className="Orders">
             <h1>
               <Link to="/produtos">
-                <span>RETIRE SEU DOCE!</span>
+                <span>Retire seu Doce!</span>
               </Link>
             </h1>
           </div>
           <div className="Orders">
             <h1>
-              <Link to="/encomenda">
-                <span>FAÇA SUA ENCOMENDA!</span>
+              <Link to="/avaliacoes">
+                <span>Avaliações</span>
               </Link>
             </h1>
           </div>
           <div className="Orders">
             <h1>
-              <Link to="/encomenda">
-                <span>PROMOÇÕES!</span>
+              <Link to="/promocoes">
+                <span>Promoções!</span>
               </Link>
             </h1>
           </div>

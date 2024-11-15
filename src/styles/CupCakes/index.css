@@ -32,3 +32,14 @@ body {
     height: 50%;
     object-fit: contain; 
 }
+
+.priceOriginal {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 10px;
+}
+
+.priceDiscounted {
+  color: #cf8c95;
+  font-weight: bold;
+}

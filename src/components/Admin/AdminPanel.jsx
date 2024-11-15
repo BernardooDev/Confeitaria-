@@ -3,6 +3,7 @@ import Pedidos from './Pedidos';
 import Produtos from './Produtos';
 import Clientes from './Clientes';
 import Dashboard from "./Dashboard";
+import Avaliacoes from "./Avaliacoes";
 
 const AdminPanel = () => {
   const [activeSection, setActiveSection] = useState('dashboard');
@@ -40,6 +41,12 @@ const AdminPanel = () => {
           >
             Produtos
           </li>
+          <li 
+            className={`admin-nav-item ${activeSection === 'avaliacoes' ? 'active' : ''}`} 
+            onClick={() => handleSectionClick('avaliacoes')}
+          >
+            Avaliações
+          </li>
         </ul>
       </nav>
 
@@ -55,6 +62,9 @@ const AdminPanel = () => {
         )}
         {activeSection === 'produtos' && (
           <Produtos></Produtos>
+        )}
+         {activeSection === 'avaliacoes' && (
+          <Avaliacoes></Avaliacoes>
         )}
       </main>
     </div>

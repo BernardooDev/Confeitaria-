@@ -26,6 +26,21 @@ router.get("/", authenticateToken, async (req, res) => {
       )
       .eq("cliente_id", userId);
 
+    const pedidosComAvaliacoes = await Promise.all(
+        pedidoData.map(async (pedido) => {
+          const { data: avaliacaoData, error: avaliacaoError } = await supabase
+            .from("avaliacoes")
+            .select("id, pedido_cliente_id, nota, comentario")
+            .eq("pedido_cliente_id", pedido.id)
+            .single(); 
+      
+          return {
+            ...pedido, 
+            avaliacao: avaliacaoData || null, 
+          };
+        })
+      );
+
     if (error || !userData) {
       return res.status(404).json({ message: "Usuário não encontrado" });
     }
@@ -35,7 +50,7 @@ router.get("/", authenticateToken, async (req, res) => {
       telefone: userData.telefone,
       senha: userData.senha,
       tipo_cliente: userData.tipo_cliente,
-      pedido: pedidoData,
+      pedido: pedidosComAvaliacoes,
       endereco: enderecoData,
       message: "Perfil carregado com sucesso!",
     });

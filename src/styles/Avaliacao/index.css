@@ -1,0 +1,114 @@
+.avaliacoes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+}
+
+.avaliacao-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 25%;
+  height: 400px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  padding: 15px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.avaliacao-card:hover {
+  transform: scale(1.02);
+}
+
+.cliente-nome {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.cliente-email {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pedido-numero,
+.pedido-data {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pedido-produtos h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #cf8c95;
+  margin-top: 10px;
+}
+
+.pedido-produtos ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.produto-item {
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  color: #333;
+  text-align: center;
+}
+
+.nota {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #cf8c95;
+  margin-top: 15px;
+}
+
+.stars {
+  margin-left: 5px;
+}
+
+.star {
+  color: #ccc;
+  font-size: 20px;
+  margin-right: 3px;
+}
+
+.star.filled {
+  color: #cf8c95;
+}
+
+.comentario {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .avaliacoes-container {
+    justify-content: center;
+  }
+
+  .avaliacao-card {
+    width: 100%;
+    height: auto;
+  }
+}

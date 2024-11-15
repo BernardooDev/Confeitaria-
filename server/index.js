@@ -11,6 +11,8 @@ const PerfilRoute = require("./routes/perfil");
 const PedidoRoute = require("./routes/pedido");
 const ClientesRoute = require("./routes/clientes")
 const DashboardRoute = require("./routes/dashboard")
+const PromocoesRoute = require("./routes/promocoes")
+const AvaliacoesRoute = require("./routes/avaliacoes")
 
 const app = express();
 app.use(cors());
@@ -30,6 +32,8 @@ app.use("/perfil", PerfilRoute);
 app.use("/pedido_cliente", PedidoRoute)
 app.use("/clientes", ClientesRoute)
 app.use("/dashboard", DashboardRoute)
+app.use("/promocoes", PromocoesRoute)
+app.use("/avaliacoes", AvaliacoesRoute)
 
 // app.get("/cliente/:id", async (req, res) => {
 //   const clienteId = req.params.id;
