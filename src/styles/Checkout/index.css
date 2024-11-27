@@ -192,10 +192,19 @@ body {
 }
 
 .ProductName {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 700; 
   color: #333; 
   letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.ProductDescription {
+  font-size: 0.8rem;
+  font-weight: 700; 
+  color: #333; 
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .ProductPrice {

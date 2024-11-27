@@ -122,8 +122,9 @@ body {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-  text-align: left;
+  text-align: center;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -134,12 +135,19 @@ body {
 .produto-card h3 {
   font-size: 24px;
   margin-bottom: 10px;
+  text-align: center
 }
 
 .produto-preco {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: #2c3e50;
+  text-align: center
+}
+
+.produto-desconto {
+  font-size: 16px;
+  color: green;
 }
 
 .produto-card p {
@@ -147,24 +155,23 @@ body {
   color: #7f8c8d;
 }
 
-.delete-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #cf8c95;
+.toggle-btn {
+  padding: 8px 16px;
+  margin-top: 10px;
   border: none;
-  color: white;
-  font-size: 24px;
-  width: 10%;
-  border-radius: 100%;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
+.toggle-btn.ativo {
+  background-color: #cf8c95;
+  color: white;
+}
 
-  .delete-btn:hover {
-    background-color: #c0392b; 
-  }
+.toggle-btn.inativo {
+  background-color: #f44336;
+  color: white;
+}
 
 @media (max-width: 768px) {
   .produto-card {

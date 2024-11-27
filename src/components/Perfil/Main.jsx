@@ -86,7 +86,7 @@ const Main = () => {
       </div>
       <div className="UserProfile">
         <div className="ProfileCard">
-          <h1>Detalhes do Perfil:</h1>
+          <h1>Informações do Cadastro</h1>
           <div className="userDetails">
             <h1>
               <strong>Nome:</strong> {userData?.nome}

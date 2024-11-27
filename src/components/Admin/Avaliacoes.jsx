@@ -49,10 +49,13 @@ export default function Avaliacoes() {
       <div className="avaliacoes-container">
         {avaliacoes.map((avaliacao) => (
           <div key={avaliacao.id} className="avaliacao-card">
-            <div className="delete-btn" onClick={() => handleDelete(avaliacao.id)}>
+            <div
+              className="delete-btn"
+              onClick={() => handleDelete(avaliacao.id)}
+            >
               x
             </div>
-            <p className="nota">
+            <div className="nota">
               <strong>Nota: </strong>
               <div className="stars">
                 {Array.from({ length: 5 }, (_, index) => (
@@ -64,7 +67,7 @@ export default function Avaliacoes() {
                   </span>
                 ))}
               </div>
-            </p>
+            </div>
             <div className="cliente-info">
               <h4>Cliente:</h4>
               <p>
@@ -85,7 +88,7 @@ export default function Avaliacoes() {
               </p>
             </div>
             <div>
-              <h1>Comentário</h1>
+              <h4>Comentário</h4>
               <p>{avaliacao.comentario}</p>
             </div>
           </div>

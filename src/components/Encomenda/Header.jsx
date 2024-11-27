@@ -1,11 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faShoppingCart, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="EncomendaHeader">
+    <header className="LocalHeader">
       <div className="Modal">
         <Link to="/">
           <FontAwesomeIcon icon={faHome} />
@@ -15,8 +16,8 @@ export default function Header() {
         <h1>Encomendas</h1>
       </div>
       <div className="Cart">
-        <Link to="/checkout">
-          <FontAwesomeIcon icon={faShoppingCart} />
+        <Link to="/perfil">
+          <FontAwesomeIcon icon={faUser} />
         </Link>
       </div>
     </header>

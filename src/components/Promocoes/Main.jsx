@@ -42,8 +42,7 @@ export default function Main() {
               <div key={promo.id} className="promocao-card">
                 <img src={produto.url_imagem} alt={produto.nome_produto} className="produto-imagem" />
                 <div className="produto-detalhes">
-                  <h3>{produto.nome_produto}</h3>
-                  <p>{produto.descricao_produto}</p>
+                  <h2>{produto.nome_produto}</h2>
                   <p className="promocao-detalhe">Desconto: {valorDesconto}%</p>
                   <p className="preco">
                     Preço Original: R$ {precoOriginal.toFixed(2)}
